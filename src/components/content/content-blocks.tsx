@@ -53,22 +53,17 @@ function Block({ block }: { block: ContentBlock }) {
 
     case "facts":
       return (
-        <ul
-          className={cn(
-            "grid gap-2",
-            block.items.length % 3 === 0 ? "grid-cols-2 sm:grid-cols-3" : "grid-cols-2",
-          )}
-        >
+        <ul className="divide-y divide-jk-primary/[0.07] overflow-hidden rounded-card bg-jk-card shadow-jk-card ring-1 ring-jk-primary/[0.05]">
           {block.items.map((fact) => (
-            <Card as="li" className="flex flex-col gap-3 p-4" key={fact.label}>
+            <li className="flex items-center gap-4 px-4 py-3.5" key={fact.label}>
               {fact.icon ? <IconBadge name={fact.icon} size="sm" /> : null}
-              <div>
+              <div className="min-w-0">
                 <p className="eyebrow text-jk-secondary">{fact.label}</p>
-                <p className="mt-1 text-sm text-jk-primary">
+                <p className="mt-0.5 text-body text-jk-primary">
                   <RichText text={fact.value} />
                 </p>
               </div>
-            </Card>
+            </li>
           ))}
         </ul>
       );
@@ -86,8 +81,8 @@ function Block({ block }: { block: ContentBlock }) {
                 </p>
                 <p
                   className={cn(
-                    "display-heading mt-3 text-3xl leading-none tracking-[0.04em] sm:text-4xl",
-                    dark ? "text-jk-cream" : "text-jk-brand-green",
+                    "display-heading mt-3 text-4xl leading-none sm:text-5xl",
+                    dark ? "text-white" : "text-jk-brand-green",
                   )}
                 >
                   {stat.value}
@@ -171,7 +166,7 @@ function Block({ block }: { block: ContentBlock }) {
 
       return (
         <a
-          className="group flex items-center gap-4 rounded-card bg-jk-brand-green p-4 text-jk-cream outline-none transition-colors duration-200 hover:bg-jk-primary focus-visible:ring-4 focus-visible:ring-jk-brand-green/25"
+          className="group flex items-center gap-4 rounded-card bg-jk-brand-green p-4 text-jk-cream outline-none transition-[background-color,transform] duration-200 hover:bg-jk-primary active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-jk-brand-green"
           href={block.href}
           {...(external ? { rel: "noopener noreferrer", target: "_blank" } : {})}
         >

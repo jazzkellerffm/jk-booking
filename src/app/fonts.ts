@@ -1,21 +1,16 @@
 import localFont from "next/font/local";
 
-export const aceRegular = localFont({
-  src: "../../public/fonts/Ace-Regular.woff2",
-  weight: "400",
-  style: "normal",
-  variable: "--font-ace",
+/** Display — hero headline and major editorial headings only. */
+export const gustavo = localFont({
+  src: [
+    { path: "../../public/fonts/Gustavo-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../../public/fonts/Gustavo-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-gustavo",
   display: "swap",
 });
 
-export const aceMedium = localFont({
-  src: "../../public/fonts/Ace-Medium.woff2",
-  weight: "500",
-  style: "normal",
-  variable: "--font-ace-medium",
-  display: "swap",
-});
-
+/** Interface — body, descriptions, functional text. */
 export const polySansNeutral = localFont({
   src: "../../public/fonts/PolySans-Neutral.woff2",
   weight: "400",
@@ -32,6 +27,7 @@ export const polySansNeutralItalic = localFont({
   display: "swap",
 });
 
+/** Buttons, pills, labels, navigation. */
 export const polySansBulky = localFont({
   src: "../../public/fonts/PolySans-Bulky.woff2",
   weight: "700",
@@ -41,8 +37,7 @@ export const polySansBulky = localFont({
 });
 
 export const fontVariables = [
-  aceRegular.variable,
-  aceMedium.variable,
+  gustavo.variable,
   polySansNeutral.variable,
   polySansNeutralItalic.variable,
   polySansBulky.variable,

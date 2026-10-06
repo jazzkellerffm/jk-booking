@@ -2,23 +2,25 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-type ButtonVariant = "primary" | "secondary" | "light" | "outline-light";
+type ButtonVariant = "primary" | "secondary" | "white" | "outline-light";
 type ButtonSize = "sm" | "md" | "lg";
 
 const variants: Record<ButtonVariant, string> = {
-  primary: "bg-jk-brand-green text-jk-cream hover:bg-jk-primary",
+  primary:
+    "bg-jk-brand-green text-white hover:bg-jk-primary focus-visible:outline-jk-brand-green",
   secondary:
-    "bg-jk-card text-jk-primary ring-1 ring-jk-primary/10 hover:ring-jk-brand-green/30",
-  /** Primary action on dark (Deep Green) surfaces */
-  light: "bg-jk-cream text-jk-primary hover:bg-jk-card",
-  /** Secondary action on dark surfaces */
-  "outline-light": "text-jk-cream ring-1 ring-jk-cream/30 hover:bg-jk-cream/10",
+    "bg-jk-card text-jk-primary ring-1 ring-jk-primary/10 hover:ring-jk-brand-green/30 focus-visible:outline-jk-brand-green",
+  /** Primary action on Brand Green / dark media */
+  white: "bg-white text-jk-primary hover:bg-jk-background focus-visible:outline-white",
+  /** Secondary action on Brand Green / dark media */
+  "outline-light":
+    "text-white ring-1 ring-inset ring-white/40 hover:bg-white/10 focus-visible:outline-white",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "h-9 gap-2 px-4 text-xs",
+  sm: "h-10 gap-2 px-4 text-sm",
   md: "h-11 gap-2 px-5 text-sm",
-  lg: "h-12 gap-2 px-6 text-body",
+  lg: "h-13 gap-2 px-7 text-body",
 };
 
 export const buttonClassName = (
@@ -27,7 +29,7 @@ export const buttonClassName = (
   className?: string,
 ) =>
   cn(
-    "ui-label inline-flex items-center justify-center rounded-full whitespace-nowrap outline-none transition-colors duration-200 focus-visible:ring-4 focus-visible:ring-jk-brand-green/20",
+    "ui-label inline-flex items-center justify-center rounded-full whitespace-nowrap outline-none transition-[background-color,box-shadow,transform] duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2",
     variants[variant],
     sizes[size],
     className,

@@ -7,21 +7,21 @@ import type {
   RichText,
 } from "@/content/types";
 
+/** Paths in public/media. Mobile is 9:16, desktop is 16:9 (switch at 768px). */
+export type HeroAsset = {
+  mobile: string;
+  desktop: string;
+};
+
 /**
- * Hero media is swappable: "ambient" renders the animated JKOS gradient layer,
- * "video" renders a muted loop on top of it (the ambient layer stays as the
- * loading / fallback state).
+ * Hero media is swappable. The ambient Brand Green layer always renders
+ * underneath and is the fallback while media loads or if it fails.
+ * Video: muted, looped, inline; replaced by `poster` with reduced motion.
  */
 export type HeroMedia =
   | { type: "ambient" }
-  | {
-      type: "video";
-      /** e.g. "/media/artist-guide-loop.mp4" — place files in public/media */
-      src: string;
-      /** Optional WebM alternative for smaller file size */
-      webmSrc?: string;
-      poster?: string;
-    };
+  | { type: "image"; src: HeroAsset }
+  | { type: "video"; src: HeroAsset; poster?: HeroAsset };
 
 export type GuideLink = {
   label: string;
@@ -89,6 +89,8 @@ export type ArtistGuideContent = {
   locale: Locale;
   meta: { title: string; description: string };
   hero: GuideHero;
+  /** Heading for the at-a-glance strip below the hero */
+  quickFactsTitle: string;
   quickFacts: Fact[];
   formats: GuideFormat[];
   sections: GuideSection[];

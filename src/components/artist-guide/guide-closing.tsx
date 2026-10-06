@@ -11,50 +11,51 @@ export function GuideClosing({ closing }: { closing: GuideClosingContent }) {
   );
 
   return (
-    <section aria-labelledby="closing-title" className="mx-auto max-w-5xl px-3 pb-12 sm:px-6">
-      <div className="relative overflow-hidden rounded-card bg-jk-brand-green-deep px-6 py-12 text-jk-cream sm:px-12">
-        <AmbientBackground variant="dark" />
+    <section
+      aria-labelledby="closing-title"
+      className="relative overflow-hidden bg-jk-brand-green text-white"
+      data-header-theme="dark"
+    >
+      <AmbientBackground variant="dark" />
 
-        <div className="relative max-w-[34rem]">
-          <p className="eyebrow text-jk-sand">{closing.eyebrow}</p>
-          <span aria-hidden="true" className="mt-4 block h-[3px] w-12 -rotate-2 rounded-full bg-jk-cream/80" />
-          <h2
-            className="display-heading mt-4 text-2xl leading-[1.2] text-jk-cream sm:text-3xl"
-            id="closing-title"
+      <div className="relative mx-auto max-w-5xl px-6 py-20 sm:px-8 sm:py-28">
+        <p className="eyebrow text-white/65">{closing.eyebrow}</p>
+        <h2
+          className="display-heading mt-5 max-w-[14ch] text-[2.5rem] text-white sm:text-6xl"
+          id="closing-title"
+        >
+          {closing.title}
+        </h2>
+        <p className="mt-6 max-w-[32rem] text-lg leading-7 text-white/80">
+          <RichText text={closing.text} />
+        </p>
+
+        <div className="mt-10">
+          <ButtonLink
+            href={mailto(site.contacts.booking.email, closing.contactSubject)}
+            size="lg"
+            variant="white"
           >
-            {closing.title}
-          </h2>
-          <p className="mt-4 text-base leading-7 text-jk-cream/80">
-            <RichText text={closing.text} />
-          </p>
-
-          <div className="mt-8">
-            <ButtonLink
-              href={mailto(site.contacts.booking.email, closing.contactSubject)}
-              size="lg"
-              variant="light"
-            >
-              <Mail aria-hidden="true" className="h-4 w-4" strokeWidth={2} />
-              {closing.contactLabel}
-            </ButtonLink>
-          </div>
-
-          <dl className="mt-8 grid gap-4 border-t border-jk-cream/10 pt-6 sm:grid-cols-2">
-            {contacts.map((contact) => (
-              <div key={contact.email}>
-                <dt className="eyebrow text-jk-cream/60">{contact.label}</dt>
-                <dd className="mt-1">
-                  <a
-                    className="ui-label text-body text-jk-cream underline decoration-jk-cream/25 underline-offset-4 transition-colors hover:decoration-jk-sand"
-                    href={mailto(contact.email)}
-                  >
-                    {contact.email}
-                  </a>
-                </dd>
-              </div>
-            ))}
-          </dl>
+            <Mail aria-hidden="true" className="h-4 w-4" strokeWidth={2} />
+            {closing.contactLabel}
+          </ButtonLink>
         </div>
+
+        <dl className="mt-12 grid max-w-[32rem] gap-4 border-t border-white/15 pt-6 sm:grid-cols-2">
+          {contacts.map((contact) => (
+            <div key={contact.email}>
+              <dt className="eyebrow text-white/55">{contact.label}</dt>
+              <dd className="mt-1">
+                <a
+                  className="ui-label text-body text-white underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-white focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                  href={mailto(contact.email)}
+                >
+                  {contact.email}
+                </a>
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

@@ -24,7 +24,7 @@ export function AppFooter() {
             <span className="flex items-center gap-2" key={link.href}>
               {index > 0 ? <span aria-hidden="true">·</span> : null}
               <a
-                className="ui-label transition-colors hover:text-jk-primary focus-visible:text-jk-primary focus-visible:outline-none"
+                className="ui-label inline-flex min-h-10 items-center rounded-sm transition-colors hover:text-jk-primary focus-visible:text-jk-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-jk-brand-green"
                 href={link.href}
                 rel="noopener noreferrer"
                 target="_blank"

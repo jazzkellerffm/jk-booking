@@ -6,9 +6,9 @@
  * Extend here rather than introducing ad-hoc hex values in components.
  */
 :root {
-  --jk-background: #f3f2ee;
+  --jk-background: #f7f7f4;
   --jk-surface: #e6e4de;
-  --jk-card: #fbf8f1;
+  --jk-card: #ffffff;
   --jk-cream: #f3e9d2;
   --jk-primary: #20352e;
   --jk-secondary: #5f6763;
@@ -48,8 +48,7 @@
   --color-jk-sand-light: var(--jk-sand-light);
 
   --font-sans: var(--font-polysans);
-  --font-display: var(--font-ace-medium);
-  --font-display-secondary: var(--font-ace);
+  --font-display: var(--font-gustavo);
   --font-ui: var(--font-polysans-bulky);
   --font-editorial: var(--font-polysans-italic);
 
@@ -76,20 +75,19 @@ body {
 
 /* Typography roles */
 
+/* Gustavo: hero + major headings only. Never for body, labels or controls. */
 .display-heading {
-  font-family: var(--font-ace-medium), var(--font-ace), Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  line-height: 1.25;
-  text-transform: uppercase;
+  font-family: var(--font-gustavo), Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
-.display-heading-secondary {
-  font-family: var(--font-ace), Arial, Helvetica, sans-serif;
+.display-heading-regular {
+  font-family: var(--font-gustavo), Georgia, serif;
   font-weight: 400;
-  letter-spacing: 0.08em;
-  line-height: 1.4;
-  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
 }
 
 .ui-label {
@@ -163,20 +161,20 @@ body {
   animation: jk-orb-drift-c 28s ease-in-out infinite alternate;
 }
 
-/* Dark variant used inside the hero media frame */
+/* Dark variant: low-opacity light inside Brand Green fields (felt, not seen) */
 .jk-ambient-dark .jk-orb-a {
-  background: radial-gradient(circle at 42% 40%, #3f6a5d 0%, transparent 70%);
-  opacity: 0.85;
+  background: radial-gradient(circle at 42% 40%, #4a7a6b 0%, transparent 70%);
+  opacity: 0.55;
 }
 
 .jk-ambient-dark .jk-orb-b {
-  background: radial-gradient(circle at 50% 45%, #c4a882 0%, transparent 68%);
-  opacity: 0.22;
+  background: radial-gradient(circle at 50% 45%, #d8c28d 0%, transparent 68%);
+  opacity: 0.12;
 }
 
 .jk-ambient-dark .jk-orb-c {
   background: radial-gradient(circle at 48% 48%, #9fb8ae 0%, transparent 72%);
-  opacity: 0.28;
+  opacity: 0.18;
 }
 
 @keyframes jk-orb-drift-a {

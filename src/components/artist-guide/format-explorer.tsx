@@ -52,9 +52,9 @@ export function FormatExplorer({ formats }: { formats: GuideFormat[] }) {
               aria-controls={panelId}
               aria-selected={active}
               className={cn(
-                "flex min-h-28 flex-col items-start justify-between rounded-card p-4 text-left outline-none transition-colors duration-200 focus-visible:ring-4 focus-visible:ring-jk-brand-green/20",
+                "flex min-h-28 flex-col items-start justify-between rounded-card p-4 text-left outline-none transition-[background-color,box-shadow,transform] duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-jk-brand-green",
                 active
-                  ? "bg-jk-brand-green text-jk-cream"
+                  ? "bg-jk-brand-green text-white shadow-jk-raised"
                   : "bg-jk-card text-jk-primary shadow-jk-card ring-1 ring-jk-primary/5 hover:ring-jk-brand-green/30",
               )}
               id={`${baseId}-tab-${format.id}`}
@@ -98,7 +98,7 @@ export function FormatExplorer({ formats }: { formats: GuideFormat[] }) {
             {selected.schedule ? <Pill tone="light">{selected.schedule}</Pill> : null}
             <p className="eyebrow text-jk-secondary">{selected.tagline}</p>
           </div>
-          <h3 className="display-heading mt-4 text-lg text-jk-primary sm:text-xl">
+          <h3 className="display-heading mt-4 text-2xl text-jk-primary sm:text-3xl">
             {selected.name}
           </h3>
           <p className="mt-3 text-base leading-7 text-jk-primary/85">
@@ -107,7 +107,7 @@ export function FormatExplorer({ formats }: { formats: GuideFormat[] }) {
 
           {selected.keyFigure ? (
             <div className="mt-6 flex items-center gap-4 rounded-inner bg-jk-sand-light p-4 ring-1 ring-jk-sand/30">
-              <p className="display-heading text-3xl leading-none tracking-[0.04em] text-jk-brand-green">
+              <p className="display-heading text-3xl leading-none text-jk-brand-green">
                 {selected.keyFigure.value}
               </p>
               <span aria-hidden="true" className="h-8 w-px bg-jk-sand/60" />

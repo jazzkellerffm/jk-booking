@@ -54,10 +54,10 @@ export function SectionNav({ items }: { items: SectionNavItem[] }) {
   return (
     <nav
       aria-label="Guide sections"
-      className="sticky top-16 z-30 mt-6 border-b border-jk-primary/[0.06] bg-jk-background/85 backdrop-blur-xl backdrop-saturate-150"
+      className="sticky top-16 z-30 mt-10 border-b border-jk-primary/[0.07] bg-white/70 backdrop-blur-xl backdrop-saturate-150"
     >
       <div
-        className="jk-no-scrollbar relative mx-auto max-w-5xl overflow-x-auto px-3 py-2 sm:px-6"
+        className="jk-no-scrollbar relative mx-auto max-w-5xl overflow-x-auto px-4 py-2 sm:px-8"
         ref={scrollerRef}
       >
         <ul className="flex w-max gap-2">
@@ -69,10 +69,10 @@ export function SectionNav({ items }: { items: SectionNavItem[] }) {
                 <a
                   aria-current={active ? "location" : undefined}
                   className={cn(
-                    "ui-label inline-flex h-9 items-center rounded-full px-4 text-xs whitespace-nowrap outline-none transition-colors duration-200 focus-visible:ring-4 focus-visible:ring-jk-brand-green/15",
+                    "ui-label inline-flex h-10 items-center rounded-full px-4 text-sm whitespace-nowrap outline-none transition-colors duration-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-jk-brand-green",
                     active
-                      ? "bg-jk-brand-green text-jk-cream"
-                      : "bg-jk-card text-jk-secondary ring-1 ring-jk-primary/[0.06] hover:text-jk-primary",
+                      ? "bg-jk-brand-green text-white"
+                      : "bg-jk-primary/[0.04] text-jk-secondary hover:bg-jk-primary/[0.07] hover:text-jk-primary",
                   )}
                   href={`#${item.id}`}
                   ref={(node) => {

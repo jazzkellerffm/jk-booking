@@ -1,65 +1,100 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { HeroMedia as HeroMediaConfig } from "@/content/artist-guide/types";
+import type { HeroAsset, HeroMedia as HeroMediaConfig } from "@/content/artist-guide/types";
 import { AmbientBackground } from "@/components/ui/ambient-background";
 import { cn } from "@/lib/cn";
 
+const DESKTOP_QUERY = "(min-width: 768px)";
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+
 /**
- * Background layer of the hero frame. The ambient orbs are always rendered;
- * a configured loop video fades in on top once it can play. With
- * `prefers-reduced-motion` the video stays paused on its first frame/poster.
+ * Background layer of the hero. The Brand Green ambient field always renders
+ * and stays visible as fallback; image or video media fades in on top.
  */
 export function HeroMedia({ media }: { media: HeroMediaConfig }) {
   return (
-    <div aria-hidden="true" className="absolute inset-0">
+    <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_80%_0%,#3a5f55_0%,#28463f_42%,#16261f_100%)]" />
       <AmbientBackground variant="dark" />
+      {media.type === "image" ? <ResponsivePicture asset={media.src} /> : null}
       {media.type === "video" ? <LoopVideo media={media} /> : null}
-      {/* Keeps hero copy readable over the ambient layer or a loop video */}
-      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-jk-brand-green-deep via-jk-brand-green-deep/70 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/30 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-[#13211c] via-[#13211c]/60 to-transparent" />
     </div>
+  );
+}
+
+function ResponsivePicture({ asset, className }: { asset: HeroAsset; className?: string }) {
+  return (
+    <picture>
+      <source media={DESKTOP_QUERY} srcSet={asset.desktop} />
+      <img
+        alt=""
+        className={cn("absolute inset-0 h-full w-full object-cover", className)}
+        decoding="async"
+        src={asset.mobile}
+      />
+    </picture>
   );
 }
 
 function LoopVideo({ media }: { media: Extract<HeroMediaConfig, { type: "video" }> }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [src, setSrc] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    const video = videoRef.current;
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const desktop = window.matchMedia(DESKTOP_QUERY);
+    const reduce = window.matchMedia(REDUCED_MOTION_QUERY);
 
     function sync() {
-      if (!video) return;
-      if (query.matches) {
-        video.pause();
-      } else {
-        void video.play().catch(() => {});
-      }
+      setReducedMotion(reduce.matches);
+      setSrc(reduce.matches ? null : desktop.matches ? media.src.desktop : media.src.mobile);
     }
 
     sync();
-    query.addEventListener("change", sync);
-    return () => query.removeEventListener("change", sync);
-  }, []);
+    desktop.addEventListener("change", sync);
+    reduce.addEventListener("change", sync);
+    return () => {
+      desktop.removeEventListener("change", sync);
+      reduce.removeEventListener("change", sync);
+    };
+  }, [media.src.desktop, media.src.mobile]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !src) return;
+    setReady(false);
+    video.muted = true;
+    void video.play().catch(() => {});
+  }, [src]);
+
+  if (reducedMotion) {
+    return media.poster ? <ResponsivePicture asset={media.poster} /> : null;
+  }
 
   return (
-    <video
-      autoPlay
-      className={cn(
-        "absolute inset-0 h-full w-full object-cover transition-opacity duration-1000",
-        ready ? "opacity-70" : "opacity-0",
-      )}
-      loop
-      muted
-      onCanPlay={() => setReady(true)}
-      playsInline
-      poster={media.poster}
-      preload="metadata"
-      ref={videoRef}
-    >
-      {media.webmSrc ? <source src={media.webmSrc} type="video/webm" /> : null}
-      <source src={media.src} type="video/mp4" />
-    </video>
+    <>
+      {media.poster ? <ResponsivePicture asset={media.poster} /> : null}
+      {src ? (
+        <video
+          autoPlay
+          className={cn(
+            "absolute inset-0 h-full w-full object-cover transition-opacity duration-700",
+            ready ? "opacity-100" : "opacity-0",
+          )}
+          key={src}
+          loop
+          muted
+          onCanPlay={() => setReady(true)}
+          playsInline
+          preload="metadata"
+          ref={videoRef}
+          src={src}
+        />
+      ) : null}
+    </>
   );
 }

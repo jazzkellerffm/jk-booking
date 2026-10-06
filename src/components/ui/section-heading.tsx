@@ -15,14 +15,14 @@ export function SectionHeading({
   index?: number;
 }) {
   return (
-    <header className="mb-6">
+    <header className="mb-8">
       <p className="eyebrow flex items-center gap-2 text-jk-brand-green">
         {typeof index === "number" ? (
-          <span className="text-jk-sand">{String(index).padStart(2, "0")}</span>
+          <span className="text-jk-secondary/60">{String(index).padStart(2, "0")}</span>
         ) : null}
         {eyebrow}
       </p>
-      <h2 className="display-heading mt-3 text-xl text-jk-primary sm:text-2xl" id={id}>
+      <h2 className="display-heading mt-3 text-[1.875rem] text-jk-primary sm:text-[2.5rem]" id={id}>
         {title}
       </h2>
       {lead ? (

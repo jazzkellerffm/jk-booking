@@ -16,13 +16,13 @@ export const artistGuideEn: ArtistGuideContent = {
   hero: {
     eyebrow: "Artist Guide",
     title: "Playing at Jazzkeller Frankfurt",
-    subtitle:
-      "A practical overview for artists performing at Jazzkeller Frankfurt — how our formats work, what to expect on the night and how payment is handled.",
+    subtitle: "The practical guide for artists performing at our club.",
     media: { type: "ambient" },
-    primaryAction: { label: "Explore formats", href: "#formats" },
-    secondaryAction: { label: "Invoicing", href: "#invoicing" },
+    primaryAction: { label: "Explore the guide", href: "#about" },
+    secondaryAction: { label: "Booking essentials", href: "#essentials" },
   },
 
+  quickFactsTitle: "Booking essentials",
   quickFacts: [
     { icon: "seats", label: "Venue", value: "Intimate club, around 60 seats" },
     { icon: "arrival", label: "Artist access", value: "Around 19:00" },

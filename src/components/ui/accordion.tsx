@@ -77,7 +77,7 @@ function AccordionRow({
         <button
           aria-controls={panelId}
           aria-expanded={open}
-          className="group flex w-full items-center gap-3 px-4 py-4 text-left outline-none transition-colors hover:bg-jk-brand-green-light/30 focus-visible:bg-jk-brand-green-light/40"
+          className="group flex min-h-16 w-full items-center gap-3 px-4 py-3.5 text-left outline-none transition-colors hover:bg-jk-brand-green-light/30 focus-visible:bg-jk-brand-green-light/40 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-jk-brand-green active:bg-jk-brand-green-light/50"
           id={buttonId}
           onClick={onToggle}
           type="button"
