@@ -53,35 +53,50 @@ function Block({ block }: { block: ContentBlock }) {
 
     case "facts":
       return (
-        <ul className="divide-y divide-jk-primary/[0.07] overflow-hidden rounded-card bg-jk-card shadow-jk-card ring-1 ring-jk-primary/[0.05]">
-          {block.items.map((fact) => (
-            <li className="flex items-center gap-4 px-4 py-3.5" key={fact.label}>
-              {fact.icon ? <IconBadge name={fact.icon} size="sm" /> : null}
-              <div className="min-w-0">
-                <p className="eyebrow text-jk-secondary">{fact.label}</p>
-                <p className="mt-0.5 text-body text-jk-primary">
-                  <RichText text={fact.value} />
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div>
+          {block.title ? (
+            <p className="eyebrow mb-2 px-1 text-jk-secondary">{block.title}</p>
+          ) : null}
+          <ul className="divide-y divide-jk-primary/[0.07] overflow-hidden rounded-card bg-jk-card shadow-jk-card ring-1 ring-jk-primary/[0.05]">
+            {block.items.map((fact) => (
+              <li className="flex items-center gap-4 px-4 py-3.5" key={`${fact.label}-${fact.value}`}>
+                {fact.icon ? <IconBadge name={fact.icon} size="sm" /> : null}
+                <div className="min-w-0">
+                  <p className="eyebrow text-jk-secondary">{fact.label}</p>
+                  <p className="mt-0.5 text-body text-jk-primary">
+                    <RichText text={fact.value} />
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       );
 
     case "stats":
       return (
-        <div className="grid grid-cols-2 gap-2">
+        <div
+          className={cn(
+            "grid gap-2",
+            block.items.length === 3 ? "md:grid-cols-3" : "grid-cols-2",
+          )}
+        >
           {block.items.map((stat, index) => {
             const dark = index === 0;
 
             return (
-              <Card className="px-4 py-6" key={stat.label} tone={dark ? "dark" : "tint"}>
+              <Card
+                className="flex flex-col px-5 py-5 sm:py-6"
+                key={stat.label}
+                tone={dark ? "dark" : "tint"}
+              >
                 <p className={cn("eyebrow", dark ? "text-jk-sand" : "text-jk-brand-green")}>
                   {stat.label}
                 </p>
                 <p
                   className={cn(
-                    "display-heading mt-3 text-4xl leading-none sm:text-5xl",
+                    "display-heading mt-3 leading-none whitespace-nowrap",
+                    block.items.length === 3 ? "text-4xl md:text-[1.625rem]" : "text-4xl sm:text-5xl",
                     dark ? "text-white" : "text-jk-brand-green",
                   )}
                 >

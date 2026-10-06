@@ -43,7 +43,7 @@ export const artistGuideEn: ArtistGuideContent = {
       points: [
         "Artists receive **60% of the applicable net ticket revenue**.",
         "If the calculation creates an uneven amount, rounding is always **in favour of the artists** — never rounded down against them.",
-        "Selected Sunday dates follow the same or a very similar model.",
+        "Sunday dates follow The Weekend booking and payout logic unless individually agreed otherwise.",
       ],
       notices: [
         {
@@ -60,23 +60,31 @@ export const artistGuideEn: ArtistGuideContent = {
       tagline: "Curated, repertoire-based nights",
       summary:
         "A curated, format-first evening built around accessible jazz repertoire in a New York club style — not a free artist showcase.",
+      keyFigure: { value: "€350 / €400", label: "up to 30 guests / from 31 guests" },
       points: [
-        "Salsa-influenced or Latin-oriented nights are welcome when they fit the atmosphere.",
+        "Payout: **€350 up to 30 guests · €400 from 31 guests**.",
         "No more than **two original compositions per evening**, fitting naturally into the overall repertoire and atmosphere.",
       ],
       goodFit: [
-        "Jazz standards",
-        "Jazz classics",
+        "Jazz Standards",
+        "Jazz Classics",
         "Swing",
         "Bebop",
         "Hardbop",
-        "Latin jazz",
+        "Straight-Ahead Jazz",
+        "Soul Jazz",
+        "Organ Jazz, where appropriate",
+        "Latin Jazz",
+        "Salsa-influenced / Latin-oriented evenings",
+        "Accessible New York club-style repertoire",
       ],
       notFor: [
-        "Album or CD-release concerts",
-        "Highly conceptual original-music projects",
-        "Experimental or avant-garde programmes",
+        "Album-release concerts",
+        "CD-release programmes",
         "Programmes dominated by original compositions",
+        "Experimental projects",
+        "Avant-garde programmes",
+        "Highly conceptual original-music projects",
       ],
       notices: [
         {
@@ -119,17 +127,14 @@ export const artistGuideEn: ArtistGuideContent = {
       ],
     },
     {
-      id: "sunday",
-      name: "Sunday / Special Event",
-      schedule: "Sunday",
-      icon: "sun",
-      tagline: "Often a second concert of a Saturday booking",
+      id: "riviera",
+      name: "Riviera",
+      schedule: "Summer season",
+      icon: "riviera",
+      tagline: "Seasonal summer nights",
       summary:
-        "Sunday is not a completely separate production model. Many Sunday dates are effectively a second concert or repeat of a Saturday booking.",
-      points: [
-        "Regular Sunday dates are swing-oriented.",
-        "Generally follows the same or very similar booking, production and payout logic as The Weekend, unless otherwise agreed.",
-      ],
+        "A seasonal summer format with a relaxed, stylish atmosphere while remaining rooted in the Jazzkeller musical identity.",
+      points: ["A lighter, more relaxed summer atmosphere."],
     },
   ],
 
@@ -174,7 +179,7 @@ export const artistGuideEn: ArtistGuideContent = {
       eyebrow: "Our sound",
       title: "Our Musical Profile",
       icon: "music",
-      lead: "Our programme centres on accessible, club-oriented jazz — music that works in an intimate jazz-club environment.",
+      lead: "Our programme centres on club-oriented, communicative and performance-driven jazz — accessible without becoming generic, and made for an intimate room.",
       blocks: [
         {
           type: "tags",
@@ -183,10 +188,15 @@ export const artistGuideEn: ArtistGuideContent = {
             "Swing",
             "Bebop",
             "Hardbop",
-            "New York-style jazz",
-            "Jazz standards",
-            "Jazz classics",
-            "Latin jazz",
+            "Straight-Ahead Jazz",
+            "Mainstream Jazz",
+            "Soul Jazz",
+            "Organ Jazz",
+            "Latin Jazz",
+            "Jazz Standards",
+            "Jazz Classics",
+            "Blues",
+            "Groove-oriented Jazz",
           ],
         },
         {
@@ -213,14 +223,15 @@ export const artistGuideEn: ArtistGuideContent = {
             "Strongly experimental music",
             "Avant-garde concepts",
             "Highly abstract contemporary sound concepts",
-            "Long-form meditative or sound-art formats",
-            "Programmes primarily about experimentation rather than an engaging club experience",
+            "Long-form meditative sound-art approaches",
+            "Programmes dominated by experimentation",
+            "Highly conceptual projects that don't work naturally in an intimate club",
           ],
         },
         {
           type: "notice",
           tone: "neutral",
-          text: "This musical identity applies across the club, including Jam Session and New York Jazz Bar.",
+          text: "This musical identity applies across the club, including Jam Session, New York Jazz Bar and Riviera.",
         },
       ],
     },
@@ -230,7 +241,7 @@ export const artistGuideEn: ArtistGuideContent = {
       eyebrow: "Choose your format",
       title: "Our Formats",
       icon: "formats",
-      lead: "Each format has its own character. Pick one to see how it works.",
+      lead: "Four formats, each with its own character. Pick one to see how it works.",
       variant: "formats",
       blocks: [],
     },
@@ -240,7 +251,7 @@ export const artistGuideEn: ArtistGuideContent = {
       eyebrow: "Fair & transparent",
       title: "Payouts",
       icon: "payout",
-      lead: "How payouts work for each format.",
+      lead: "The confirmed payout models at a glance.",
       blocks: [
         {
           type: "stats",
@@ -249,6 +260,11 @@ export const artistGuideEn: ArtistGuideContent = {
               value: "60%",
               label: "The Weekend",
               caption: "of applicable net ticket revenue",
+            },
+            {
+              value: "€350 / €400",
+              label: "New York Jazz Bar",
+              caption: "up to 30 guests / from 31 guests",
             },
             {
               value: "€75",
@@ -280,17 +296,25 @@ export const artistGuideEn: ArtistGuideContent = {
                   title: "Sold-out nights",
                   text: "If the venue is fully sold out, Jazzkeller Frankfurt may retain additional spontaneous walk-in revenue to help cover club operating costs. This applies only to additional sales after regular capacity has been reached.",
                 },
+                {
+                  type: "paragraph",
+                  text: "Sunday dates follow The Weekend booking and payout logic unless individually agreed otherwise.",
+                },
               ],
             },
             {
-              id: "payout-sunday",
-              title: "Sunday / Special Event",
-              icon: "sun",
-              summary: "Generally follows The Weekend",
+              id: "payout-nyjb",
+              title: "New York Jazz Bar",
+              icon: "music",
+              summary: "€350 up to 30 guests · €400 from 31 guests",
               blocks: [
                 {
-                  type: "paragraph",
-                  text: "Sunday dates generally follow the same or very similar payout logic as The Weekend, unless otherwise agreed.",
+                  type: "list",
+                  style: "check",
+                  items: [
+                    "**€350** up to and including 30 guests.",
+                    "**€400** from 31 guests onward.",
+                  ],
                 },
               ],
             },
@@ -465,48 +489,48 @@ export const artistGuideEn: ArtistGuideContent = {
       blocks: [
         {
           type: "facts",
+          title: "Piano & drums",
           items: [
-            { icon: "piano", label: "Piano", value: "Grand piano" },
-            { icon: "bass", label: "Bass", value: "Bass amp" },
-            { icon: "guitar", label: "Guitar", value: "Two guitar amps" },
-            { icon: "monitor", label: "Monitoring", value: "One monitor" },
+            { icon: "piano", label: "Piano", value: "Seiler grand piano" },
             { icon: "drum", label: "Drums", value: "Sonor drum set" },
-            { icon: "technical", label: "Audio", value: "Professional club PA / audio setup" },
           ],
         },
         {
-          type: "accordion",
+          type: "facts",
+          title: "Amplification",
           items: [
+            { icon: "bass", label: "Bass", value: "Markbass bass amplifier" },
+            { icon: "guitar", label: "Guitar", value: "Fender ’65 Reverb guitar amplifier" },
+            { icon: "guitar", label: "Guitar", value: "Roland Jazz Chorus guitar amplifier" },
+          ],
+        },
+        {
+          type: "facts",
+          title: "PA, monitoring & microphones",
+          items: [
+            { icon: "pa", label: "PA", value: "d&b audiotechnik professional PA system" },
+            { icon: "monitor", label: "Monitoring", value: "1 stage monitor" },
+            { icon: "microphone", label: "Microphones", value: "4 × Shure SM58" },
+          ],
+        },
+        {
+          type: "facts",
+          title: "Bring your own / not available",
+          items: [
+            { icon: "cymbal", label: "Cymbals", value: "Drummers bring their own" },
+            { icon: "ban", label: "Keyboard stand", value: "Not available" },
             {
-              id: "technical-bring",
-              title: "Please bring",
-              icon: "cymbal",
-              summary: "Cymbals, keyboard stand, anything not listed",
-              blocks: [
-                {
-                  type: "list",
-                  style: "dot",
-                  items: [
-                    "Drummers bring their own **cymbals**.",
-                    "There is **no keyboard stand** available.",
-                    "Any additional instruments, specialty backline or accessories not listed here must be brought or arranged by the artist.",
-                  ],
-                },
-              ],
-            },
-            {
-              id: "technical-rentals",
-              title: "Rentals",
-              icon: "ban",
-              summary: "No additional rentals",
-              blocks: [
-                {
-                  type: "paragraph",
-                  text: "Due to our budget structure, we do not rent additional instruments or backline for individual performances.",
-                },
-              ],
+              icon: "package",
+              label: "Anything not listed",
+              value: "Additional instruments, specialty backline or accessories must be brought or arranged by the artist",
             },
           ],
+        },
+        {
+          type: "notice",
+          tone: "neutral",
+          title: "No rentals",
+          text: "Due to our budget structure, we do not rent additional instruments or backline for individual performances.",
         },
       ],
     },
@@ -564,6 +588,24 @@ export const artistGuideEn: ArtistGuideContent = {
                   type: "list",
                   style: "cross",
                   items: ["No cash payout", "No PayPal payout"],
+                },
+              ],
+            },
+            {
+              id: "invoicing-bank",
+              title: "Bank account",
+              icon: "payout",
+              summary: "EU-based IBAN required",
+              blocks: [
+                {
+                  type: "paragraph",
+                  text: "Payouts are made by bank transfer to an **EU-based EUR account with an IBAN**. Direct transfers to bank accounts outside the European Union, including Swiss and US accounts, are not supported.",
+                },
+                {
+                  type: "notice",
+                  tone: "info",
+                  title: "International artists",
+                  text: "International artists commonly use services such as Wise to provide suitable EU banking details.",
                 },
               ],
             },
@@ -633,7 +675,7 @@ export const artistGuideEn: ArtistGuideContent = {
             {
               marker: "03",
               title: "Invoice & payment",
-              text: "Submit your invoice via [invoice.jazzkeller.com](https://invoice.jazzkeller.com). Payment by bank transfer, usually within 30 days.",
+              text: "Submit your invoice via [invoice.jazzkeller.com](https://invoice.jazzkeller.com). Payment by bank transfer to an EU-based IBAN, usually within 30 days.",
             },
           ],
         },
@@ -642,9 +684,10 @@ export const artistGuideEn: ArtistGuideContent = {
   ],
 
   closing: {
-    eyebrow: "Questions?",
-    title: "We look forward to having you",
-    text: "If anything is unclear, get in touch with our booking team.",
+    eyebrow: "Before your performance",
+    title: "You’re all set.",
+    text: "If anything in this guide is unclear, please get in touch before your performance.",
+    note: "Once your booking is confirmed, you may be asked to complete the next booking step with your artist and production details.",
     contactLabel: "Email booking",
     contactSubject: "Artist Guide — question",
   },
@@ -659,12 +702,24 @@ export const artistGuideEn: ArtistGuideContent = {
       note: "Weekday for Jam Session is not stated in the source.",
     },
     {
-      field: "sections.payouts.nyjb",
-      note: "Exact New York Jazz Bar payout model is intentionally not finalized (source §24).",
+      field: "formats.riviera",
+      note: "Riviera payout model, dates, repertoire restrictions and production rules are not confirmed (source §8a).",
     },
     {
-      field: "formats.sunday.payout",
-      note: "Exact Sunday payout wording where it differs from The Weekend is not finalized (source §24).",
+      field: "sections.technical.bass",
+      note: "Exact Markbass bass amplifier model (source §14).",
+    },
+    {
+      field: "sections.technical.guitar",
+      note: "Exact Fender ’65 Reverb model / product naming (source §14).",
+    },
+    {
+      field: "sections.technical.monitor",
+      note: "Stage monitor manufacturer / model (source §14).",
+    },
+    {
+      field: "closing.nextAction",
+      note: "Booking acknowledgement action (e.g. “I’ve read the guide”) — reserved until the workflow exists.",
     },
     {
       field: "formats.nyjb|jam.cancellationNotice",

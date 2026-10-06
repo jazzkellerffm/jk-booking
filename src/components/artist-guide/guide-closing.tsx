@@ -26,15 +26,25 @@ export function GuideClosing({ closing }: { closing: GuideClosingContent }) {
         >
           {closing.title}
         </h2>
-        <p className="mt-6 max-w-[32rem] text-lg leading-7 text-white/80">
+        <p className="mt-6 max-w-[32rem] text-lg leading-7 text-white/85">
           <RichText text={closing.text} />
         </p>
+        {closing.note ? (
+          <p className="mt-3 max-w-[32rem] text-body leading-6 text-white/65">
+            <RichText text={closing.note} />
+          </p>
+        ) : null}
 
-        <div className="mt-10">
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+          {closing.nextAction ? (
+            <ButtonLink href={closing.nextAction.href} size="lg" variant="white">
+              {closing.nextAction.label}
+            </ButtonLink>
+          ) : null}
           <ButtonLink
             href={mailto(site.contacts.booking.email, closing.contactSubject)}
             size="lg"
-            variant="white"
+            variant={closing.nextAction ? "outline-light" : "white"}
           >
             <Mail aria-hidden="true" className="h-4 w-4" strokeWidth={2} />
             {closing.contactLabel}

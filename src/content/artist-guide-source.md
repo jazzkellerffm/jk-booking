@@ -76,11 +76,31 @@ The musical profile of Jazzkeller Frankfurt is centered around:
 - Swing
 - Bebop
 - Hardbop
-- New York-style jazz
-- Jazz standards
-- Jazz classics
-- Latin jazz
-- related accessible, club-oriented jazz formats
+- Straight-Ahead Jazz
+- Mainstream Jazz
+- Soul Jazz
+- Organ Jazz
+- Latin Jazz
+- Jazz Standards
+- Jazz Classics
+- Blues
+- Groove-oriented Jazz
+
+These may be shown as tags / chips.
+
+Do **not** list the following as positive profile tags:
+- Contemporary Jazz
+- Fusion
+- Free Jazz
+- Experimental Jazz
+- Avant-Garde Jazz
+
+Broader identity:
+- club-oriented
+- audience-connected
+- communicative
+- performance-driven
+- accessible without becoming generic
 
 Fresh ideas are welcome if they fit the character of the club.
 
@@ -88,8 +108,9 @@ The venue is generally **not** a fit for:
 - strongly experimental music
 - avant-garde concepts
 - highly abstract contemporary sound concepts
-- long-form meditative or sound-art formats
-- programs that are primarily about experimentation rather than an engaging club experience
+- long-form meditative sound-art approaches
+- programs dominated by experimentation
+- highly conceptual projects that do not work naturally in an intimate club environment
 
 The club values:
 - musical communication
@@ -98,18 +119,20 @@ The club values:
 - groove
 - repertoire that works in an intimate jazz-club environment
 
-This musical identity applies across the club, including Jam Session and New York Jazz Bar.
+This musical identity applies across the club, including Jam Session, New York Jazz Bar and Riviera.
 
 ---
 
 # 4. Format Overview
 
-The public guide should distinguish between these formats:
+The public guide presents four primary formats:
 
 1. The Weekend
 2. New York Jazz Bar
 3. Jam Session
-4. Sunday / Special Event
+4. Riviera
+
+Sunday / Special Event is **not** a separate primary format. Selected Sunday dates are treated as part of The Weekend logic (see §8).
 
 The UI may use cards, tabs or accordions.
 
@@ -120,7 +143,7 @@ The UI may use cards, tabs or accordions.
 Typical days:
 - Friday
 - Saturday
-- selected Sunday dates follow the same or very similar model
+- Sunday dates follow The Weekend booking and payout logic unless individually agreed otherwise (see §8)
 
 ## Musical character
 The Weekend is the most artist-led concert format.
@@ -152,23 +175,35 @@ New York Jazz Bar is a curated format.
 
 ## Musical direction
 The format should focus on accessible jazz repertoire such as:
-- Jazz standards
-- Jazz classics
+- Jazz Standards
+- Jazz Classics
 - Swing
 - Bebop
 - Hardbop
-- Latin jazz
-- Salsa-influenced or Latin-oriented nights when they fit the atmosphere
-- related New York club-style repertoire
+- Straight-Ahead Jazz
+- Soul Jazz
+- Organ Jazz where appropriate
+- Latin Jazz
+- Salsa-influenced / Latin-oriented evenings
+- accessible New York club-style repertoire
 
 ## Not intended for
 New York Jazz Bar is not intended for:
 - album-release concerts
 - CD-release programs
-- highly conceptual original-music projects
+- programs dominated by original compositions
 - experimental projects
 - avant-garde programs
-- programs dominated by original compositions
+- highly conceptual original-music projects
+
+## Payout
+Current rule:
+- **€350 up to and including 30 guests**
+- **€400 from 31 guests onward**
+
+Preferred concise wording: `€350 up to 30 guests · €400 from 31 guests`
+
+Do not invent additional payout conditions.
 
 ## Original compositions
 Current rule:
@@ -230,16 +265,41 @@ Use the same "reasonable notice" logic as above.
 
 ---
 
-# 8. Sunday / Special Event
+# 8. Sunday (part of The Weekend)
 
-Sunday is not a completely separate production model.
+Sunday is not a separate primary format and not a completely separate production model. Present it within The Weekend.
 
 Current logic:
 - regular Sunday swing dates are Swing-oriented
 - many Sunday dates are effectively a second concert / repeat of a Saturday booking
-- Sunday generally follows the same or very similar booking, production and payout logic as The Weekend unless otherwise agreed
+- Sunday follows the Weekend booking and payout logic unless individually agreed otherwise
 
-Do not invent separate Sunday fees.
+Suggested wording:
+
+> Sunday dates follow The Weekend booking and payout logic unless individually agreed otherwise.
+
+Do not invent separate Sunday fees or a separate Sunday payout model.
+
+---
+
+# 8a. Riviera
+
+Riviera is the fourth primary format.
+
+Current confirmed positioning:
+- seasonal summer format
+- lighter and more relaxed atmosphere
+- still clearly rooted in the Jazzkeller musical identity
+
+Suggested wording:
+
+> A seasonal summer format with a relaxed, stylish atmosphere while remaining rooted in the Jazzkeller musical identity.
+
+Not yet confirmed — do not invent:
+- payout model
+- exact repertoire restrictions
+- exact dates
+- exact production rules
 
 ---
 
@@ -371,30 +431,37 @@ Keep this short and practical.
 
 # 14. Technical Basics
 
-For the first public guide, include only the basic technical overview.
+For the first public guide, include only the basic technical overview (Technical Basics, not the full Technical Rider). Keep it easy to scan, grouped into compact categories.
 
-Available:
-- grand piano
-- bass amp
-- two guitar amps
-- one monitor
-- drum set
-- professional club PA / audio setup
+## Piano
+- Seiler grand piano
 
-Known details from the current venue context:
+## Amplification
+- Markbass bass amplifier (exact model TBD)
+- Fender ’65 Reverb guitar amplifier (exact model / product naming TBD)
+- Roland Jazz Chorus guitar amplifier
+
+## Drums
 - Sonor drum set
 - drummers bring their own cymbals
-- no keyboard stand available
 
-Important operational rule:
+## PA & Monitoring
+- d&b audiotechnik professional PA system (use this exact brand spelling; may be presented confidently)
+- 1 stage monitor (exact manufacturer / model TBD)
+
+## Microphones
+- 4 × Shure SM58
+
+## Not available / artist responsibility
+- no keyboard stand available
+- additional instruments, specialty backline or accessories not listed must be brought or arranged by the artist
 - Jazzkeller Frankfurt does not rent additional instruments or specialty backline for individual performances
-- anything not part of the listed basic setup must be brought or arranged by the artist
 
 Suggested wording:
 
 > Jazzkeller provides a basic professional club setup. Any additional instruments, specialty backline or accessories not listed in our technical equipment must be brought or arranged by the artist. Due to our budget structure, we do not rent additional instruments or backline for individual performances.
 
-Do not invent exact model numbers unless they are separately confirmed.
+Do not add condenser-microphone warnings, exact monitor or Markbass models, or older technical inventory unless separately confirmed.
 
 Possible later module:
 - full Technical Rider
@@ -434,6 +501,21 @@ Do not use the old invoice email address from the previous guide.
 - bank transfer only
 - no cash payout
 - no PayPal payout
+
+## Bank account requirement
+- the payout account must be **based in the European Union**
+- it must provide an **IBAN suitable for EUR bank transfer**
+- direct transfers to Swiss, US or other non-EU bank accounts are not supported
+- SEPA membership alone is not the criterion (Switzerland is part of SEPA, but Swiss accounts are not supported)
+- international artists may use services such as **Wise** as an optional practical solution
+
+Wise is a recommendation, not a requirement. Phrase this as practical payment guidance, not tax advice.
+
+Short label: `EU-based IBAN required`
+
+Suggested wording:
+
+> Payouts are made by bank transfer to an EU-based EUR account with an IBAN. Direct transfers to bank accounts outside the European Union, including Swiss and US accounts, are not supported. International artists commonly use services such as Wise to provide suitable EU banking details.
 
 ## Payment timing
 - payment is usually made within **30 days after receipt of a proper invoice**
@@ -509,6 +591,15 @@ Do not publish private mobile phone numbers in the public guide.
 
 Additional operational contact information may later be included in individual booking confirmations.
 
+## Closing message
+Suggested wording:
+
+> **You’re all set.**
+> If anything in this guide is unclear, please get in touch before your performance.
+> Once your booking is confirmed, you may be asked to complete the next booking step with your artist and production details.
+
+The closing section may later host a booking acknowledgement action (e.g. "I’ve read the guide", "Confirm booking conditions", "Continue booking"). Do not build or imply that workflow until it exists — no storage, tracking, Tally integration or authentication yet.
+
 ---
 
 # 20. Practical Information
@@ -537,10 +628,10 @@ The Artist Guide should remain concise.
 Information that should later become separate modules:
 
 ## Technical Rider
-- exact amp models
+- exact amp and monitor models
 - mixer
-- microphones
-- PA
+- full microphone list
+- detailed PA specification
 - piano details
 - stage dimensions
 - full equipment list
@@ -627,9 +718,10 @@ The app should clearly separate:
 
 Keep these out of public copy unless later confirmed:
 
-- exact New York Jazz Bar payout model
-- exact Sunday payout wording where it differs from Weekend
-- exact technical equipment model list
+- Riviera payout model, exact dates, repertoire restrictions and production rules
+- exact Markbass bass amp model
+- exact Fender ’65 Reverb model / product naming
+- exact stage monitor manufacturer / model
 - exact show lengths / set lengths for every format
 - exact cancellation notice period for NYJB / Jam
 - exact international tax examples

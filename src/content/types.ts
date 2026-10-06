@@ -28,12 +28,16 @@ export type IconName =
   | "invoice"
   | "mail"
   | "megaphone"
+  | "microphone"
   | "monitor"
   | "moon"
   | "music"
   | "next"
+  | "pa"
+  | "package"
   | "payout"
   | "piano"
+  | "riviera"
   | "seats"
   | "session"
   | "sparkles"
@@ -83,7 +87,7 @@ export type ContentBlock =
       text: RichText;
       icon?: IconName;
     }
-  | { type: "facts"; items: Fact[] }
+  | { type: "facts"; title?: string; items: Fact[] }
   | { type: "stats"; items: { value: string; label: string; caption?: RichText }[] }
   | { type: "tags"; title?: string; items: string[] }
   | { type: "steps"; items: Step[] }

@@ -37,7 +37,7 @@ export type GuideHero = {
   secondaryAction: GuideLink;
 };
 
-export type GuideFormatId = "weekend" | "nyjb" | "jam" | "sunday";
+export type GuideFormatId = "weekend" | "nyjb" | "jam" | "riviera";
 
 export type GuideFormat = {
   id: GuideFormatId;
@@ -71,8 +71,15 @@ export type GuideClosing = {
   eyebrow: string;
   title: string;
   text: RichText;
+  /** Secondary line under the main text */
+  note?: RichText;
   contactLabel: string;
   contactSubject: string;
+  /**
+   * Reserved for the future booking acknowledgement step. Leave unset until
+   * that flow exists — it renders as a real, working link.
+   */
+  nextAction?: GuideLink;
 };
 
 /**

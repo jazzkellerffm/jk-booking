@@ -15,7 +15,7 @@ export function GuideSection({
   const headingId = `${section.id}-title`;
 
   return (
-    <section aria-labelledby={headingId} className="scroll-mt-32" id={section.id}>
+    <section aria-labelledby={headingId} className="scroll-mt-6" id={section.id}>
       <SectionHeading
         eyebrow={section.eyebrow}
         id={headingId}
