@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+/*
+ * JKOS design tokens — see src/content/jkos-style-guide.md.
+ * Core: Deep Green #28463F + Creme #F3E9D2. Neutrals follow jk-goldpass.
+ * Extend here rather than introducing ad-hoc hex values in components.
+ */
+:root {
+  --jk-background: #f3f2ee;
+  --jk-surface: #e6e4de;
+  --jk-card: #fbf8f1;
+  --jk-cream: #f3e9d2;
+  --jk-primary: #20352e;
+  --jk-secondary: #5f6763;
+  --jk-brand-green: #28463f;
+  --jk-brand-green-light: #dce6e1;
+  --jk-brand-green-deep: #1b3029;
+  --jk-sand: #c4a882;
+  --jk-sand-light: #f3e9d2;
+
+  --jk-shadow-card: 0 8px 24px -20px rgba(32, 53, 46, 0.35);
+  --jk-shadow-raised: 0 12px 32px -24px rgba(32, 53, 46, 0.5);
+}
+
+/* Radius + type scale (style guide: cards 16–20px, controls 10–12px, pills full) */
+@theme {
+  --radius-card: 1.25rem;
+  --radius-inner: 1rem;
+  --radius-control: 0.75rem;
+
+  --text-meta: 0.6875rem;
+  --text-meta--line-height: 1rem;
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.5rem;
+}
+
+@theme inline {
+  --color-jk-background: var(--jk-background);
+  --color-jk-surface: var(--jk-surface);
+  --color-jk-card: var(--jk-card);
+  --color-jk-cream: var(--jk-cream);
+  --color-jk-primary: var(--jk-primary);
+  --color-jk-secondary: var(--jk-secondary);
+  --color-jk-brand-green: var(--jk-brand-green);
+  --color-jk-brand-green-light: var(--jk-brand-green-light);
+  --color-jk-brand-green-deep: var(--jk-brand-green-deep);
+  --color-jk-sand: var(--jk-sand);
+  --color-jk-sand-light: var(--jk-sand-light);
+
+  --font-sans: var(--font-polysans);
+  --font-display: var(--font-ace-medium);
+  --font-display-secondary: var(--font-ace);
+  --font-ui: var(--font-polysans-bulky);
+  --font-editorial: var(--font-polysans-italic);
+
+  --shadow-jk-card: var(--jk-shadow-card);
+  --shadow-jk-raised: var(--jk-shadow-raised);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7.5rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--jk-background);
+  color: var(--jk-primary);
+  font-family: var(--font-polysans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--jk-brand-green-light);
+  color: var(--jk-primary);
+}
+
+/* Typography roles */
+
+.display-heading {
+  font-family: var(--font-ace-medium), var(--font-ace), Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.display-heading-secondary {
+  font-family: var(--font-ace), Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.ui-label {
+  font-family: var(--font-polysans-bulky), var(--font-polysans), Arial, Helvetica, sans-serif;
+}
+
+.eyebrow {
+  font-family: var(--font-polysans-bulky), var(--font-polysans), Arial, Helvetica, sans-serif;
+  font-size: var(--text-meta);
+  letter-spacing: 0.16em;
+  line-height: 1rem;
+  text-transform: uppercase;
+}
+
+.editorial {
+  font-family: var(--font-polysans-italic), var(--font-polysans), Arial, Helvetica, sans-serif;
+  font-style: italic;
+}
+
+/* Ambient orbs — same motion language as Gold Pass, scoped to a container */
+
+.jk-ambient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.jk-ambient-fixed {
+  position: fixed;
+  z-index: -1;
+}
+
+.jk-orb {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  filter: blur(72px);
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.jk-orb-a {
+  top: -22%;
+  left: -28%;
+  width: 78vmin;
+  height: 78vmin;
+  background: radial-gradient(circle at 42% 40%, #dce6e1 0%, transparent 70%);
+  opacity: 0.72;
+  animation: jk-orb-drift-a 34s ease-in-out infinite alternate;
+}
+
+.jk-orb-b {
+  top: 8%;
+  right: -24%;
+  width: 64vmin;
+  height: 64vmin;
+  background: radial-gradient(circle at 50% 45%, #9fb8ae 0%, transparent 68%);
+  opacity: 0.33;
+  animation: jk-orb-drift-b 40s ease-in-out infinite alternate;
+}
+
+.jk-orb-c {
+  right: 6%;
+  bottom: -28%;
+  width: 70vmin;
+  height: 70vmin;
+  background: radial-gradient(circle at 48% 48%, #27463e 0%, transparent 72%);
+  opacity: 0.16;
+  animation: jk-orb-drift-c 28s ease-in-out infinite alternate;
+}
+
+/* Dark variant used inside the hero media frame */
+.jk-ambient-dark .jk-orb-a {
+  background: radial-gradient(circle at 42% 40%, #3f6a5d 0%, transparent 70%);
+  opacity: 0.85;
+}
+
+.jk-ambient-dark .jk-orb-b {
+  background: radial-gradient(circle at 50% 45%, #c4a882 0%, transparent 68%);
+  opacity: 0.22;
+}
+
+.jk-ambient-dark .jk-orb-c {
+  background: radial-gradient(circle at 48% 48%, #9fb8ae 0%, transparent 72%);
+  opacity: 0.28;
+}
+
+@keyframes jk-orb-drift-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+
+  to {
+    transform: translate3d(7%, 5%, 0) scale(1.06) rotate(6deg);
+  }
+}
+
+@keyframes jk-orb-drift-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.04) rotate(-4deg);
+  }
+
+  to {
+    transform: translate3d(-8%, 9%, 0) scale(1) rotate(6deg);
+  }
+}
+
+@keyframes jk-orb-drift-c {
+  from {
+    transform: translate3d(0, 0, 0) scale(1) rotate(3deg);
+  }
+
+  to {
+    transform: translate3d(-5%, -6%, 0) scale(1.07) rotate(-5deg);
+  }
+}
+
+/* State-change fade (e.g. switching formats) */
+
+@keyframes jk-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 4px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.jk-rise {
+  animation: jk-rise 0.3s ease-out both;
+}
+
+/* Collapsible height transition (used by Accordion) */
+
+.jk-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.jk-collapse[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.jk-collapse > * {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.jk-no-scrollbar {
+  scrollbar-width: none;
+}
+
+.jk-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .jk-orb,
+  .jk-rise {
+    animation: none;
+  }
+
+  .jk-collapse {
+    transition: none;
+  }
+}

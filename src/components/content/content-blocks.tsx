@@ -1,0 +1,196 @@
+import { ArrowUpRight } from "lucide-react";
+import type { ContentBlock } from "@/content/types";
+import { Accordion } from "@/components/ui/accordion";
+import { BulletList } from "@/components/ui/bullet-list";
+import { Card } from "@/components/ui/card";
+import { IconBadge } from "@/components/ui/icon-badge";
+import { Notice } from "@/components/ui/notice";
+import { Pill } from "@/components/ui/pill";
+import { RichText } from "@/components/ui/rich-text";
+import { cn } from "@/lib/cn";
+
+export function ContentBlocks({
+  blocks,
+  className,
+}: {
+  blocks: ContentBlock[];
+  className?: string;
+}) {
+  if (blocks.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className={cn("space-y-4", className)}>
+      {blocks.map((block, index) => (
+        <Block block={block} key={`${block.type}-${index}`} />
+      ))}
+    </div>
+  );
+}
+
+function Block({ block }: { block: ContentBlock }) {
+  switch (block.type) {
+    case "paragraph":
+      return (
+        <p
+          className={cn(
+            "max-w-[40rem] text-jk-primary/85",
+            block.size === "lead" ? "text-base leading-7" : "text-body",
+          )}
+        >
+          <RichText text={block.text} />
+        </p>
+      );
+
+    case "list":
+      return <BulletList items={block.items} style={block.style} title={block.title} />;
+
+    case "notice":
+      return (
+        <Notice icon={block.icon} text={block.text} title={block.title} tone={block.tone} />
+      );
+
+    case "facts":
+      return (
+        <ul
+          className={cn(
+            "grid gap-2",
+            block.items.length % 3 === 0 ? "grid-cols-2 sm:grid-cols-3" : "grid-cols-2",
+          )}
+        >
+          {block.items.map((fact) => (
+            <Card as="li" className="flex flex-col gap-3 p-4" key={fact.label}>
+              {fact.icon ? <IconBadge name={fact.icon} size="sm" /> : null}
+              <div>
+                <p className="eyebrow text-jk-secondary">{fact.label}</p>
+                <p className="mt-1 text-sm text-jk-primary">
+                  <RichText text={fact.value} />
+                </p>
+              </div>
+            </Card>
+          ))}
+        </ul>
+      );
+
+    case "stats":
+      return (
+        <div className="grid grid-cols-2 gap-2">
+          {block.items.map((stat, index) => {
+            const dark = index === 0;
+
+            return (
+              <Card className="px-4 py-6" key={stat.label} tone={dark ? "dark" : "tint"}>
+                <p className={cn("eyebrow", dark ? "text-jk-sand" : "text-jk-brand-green")}>
+                  {stat.label}
+                </p>
+                <p
+                  className={cn(
+                    "display-heading mt-3 text-3xl leading-none tracking-[0.04em] sm:text-4xl",
+                    dark ? "text-jk-cream" : "text-jk-brand-green",
+                  )}
+                >
+                  {stat.value}
+                </p>
+                {stat.caption ? (
+                  <p
+                    className={cn(
+                      "mt-3 text-sm",
+                      dark ? "text-jk-cream/75" : "text-jk-secondary",
+                    )}
+                  >
+                    {stat.caption}
+                  </p>
+                ) : null}
+              </Card>
+            );
+          })}
+        </div>
+      );
+
+    case "tags":
+      return (
+        <div>
+          {block.title ? (
+            <p className="eyebrow mb-3 text-jk-secondary">{block.title}</p>
+          ) : null}
+          <ul className="flex flex-wrap gap-2">
+            {block.items.map((tag) => (
+              <li key={tag}>
+                <Pill tone="outline">{tag}</Pill>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+
+    case "steps":
+      return (
+        <ol>
+          {block.items.map((step, index) => {
+            const last = index === block.items.length - 1;
+
+            return (
+              <li className="relative flex gap-4 pb-6 last:pb-0" key={step.title}>
+                {!last ? (
+                  <span
+                    aria-hidden="true"
+                    className="absolute top-9 bottom-0 left-6 w-px bg-jk-brand-green/15"
+                  />
+                ) : null}
+                <span className="ui-label relative inline-flex h-9 min-w-12 shrink-0 items-center justify-center rounded-full bg-jk-brand-green px-3 text-xs text-jk-cream">
+                  {step.marker ?? String(index + 1).padStart(2, "0")}
+                </span>
+                <div className="min-w-0 pt-1">
+                  <p className="ui-label text-body text-jk-primary">{step.title}</p>
+                  <p className="mt-1 text-body text-jk-secondary">
+                    <RichText text={step.text} />
+                  </p>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      );
+
+    case "accordion":
+      return (
+        <Accordion
+          items={block.items.map((item) => ({
+            id: item.id,
+            title: item.title,
+            summary: item.summary,
+            icon: item.icon,
+            content: <ContentBlocks blocks={item.blocks} className="space-y-3" />,
+          }))}
+        />
+      );
+
+    case "action": {
+      const external = /^https?:\/\//.test(block.href);
+
+      return (
+        <a
+          className="group flex items-center gap-4 rounded-card bg-jk-brand-green p-4 text-jk-cream outline-none transition-colors duration-200 hover:bg-jk-primary focus-visible:ring-4 focus-visible:ring-jk-brand-green/25"
+          href={block.href}
+          {...(external ? { rel: "noopener noreferrer", target: "_blank" } : {})}
+        >
+          {block.icon ? <IconBadge name={block.icon} tone="on-dark" /> : null}
+          <span className="min-w-0 flex-1">
+            {block.description ? (
+              <span className="eyebrow block text-jk-sand">
+                <RichText text={block.description} />
+              </span>
+            ) : null}
+            <span className="ui-label mt-1 block truncate text-base text-jk-cream">
+              {block.label}
+            </span>
+          </span>
+          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-jk-cream text-jk-brand-green">
+            <ArrowUpRight aria-hidden="true" className="h-4 w-4" strokeWidth={2} />
+          </span>
+        </a>
+      );
+    }
+  }
+}
