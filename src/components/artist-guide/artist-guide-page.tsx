@@ -15,17 +15,20 @@ export function ArtistGuidePage({ guide }: { guide: ArtistGuideContent }) {
     <>
       <GuideHero hero={guide.hero} />
       <QuickFacts facts={guide.quickFacts} title={guide.quickFactsTitle} />
-      <SectionNav items={navItems} />
+      {/* Wrapper bounds the sticky nav so it releases before the closing section */}
+      <div>
+        <SectionNav items={navItems} />
 
-      <div className="mx-auto max-w-3xl space-y-20 px-4 py-14 sm:space-y-24 sm:px-6 sm:py-20">
-        {guide.sections.map((section, index) => (
-          <GuideSection
-            formats={guide.formats}
-            index={index + 1}
-            key={section.id}
-            section={section}
-          />
-        ))}
+        <div className="mx-auto max-w-3xl space-y-20 px-4 py-14 sm:space-y-24 sm:px-6 sm:py-20">
+          {guide.sections.map((section, index) => (
+            <GuideSection
+              formats={guide.formats}
+              index={index + 1}
+              key={section.id}
+              section={section}
+            />
+          ))}
+        </div>
       </div>
 
       <GuideClosing closing={guide.closing} />
