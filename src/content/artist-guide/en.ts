@@ -60,9 +60,9 @@ export const artistGuideEn: ArtistGuideContent = {
       tagline: "Curated, repertoire-based nights",
       summary:
         "A curated, format-first evening built around accessible jazz repertoire in a New York club style — not a free artist showcase.",
-      keyFigure: { value: "€350 / €400", label: "up to 30 guests / from 31 guests" },
+      keyFigure: { value: "€400", label: "fixed artist fee" },
       points: [
-        "Payout: **€350 up to 30 guests · €400 from 31 guests**.",
+        "Payout: **€400 fixed artist fee**.",
         "No more than **two original compositions per evening**, fitting naturally into the overall repertoire and atmosphere.",
       ],
       goodFit: [
@@ -89,7 +89,8 @@ export const artistGuideEn: ArtistGuideContent = {
       notices: [
         {
           tone: "info",
-          text: "In rare cases, if advance demand is exceptionally low, Jazzkeller Frankfurt reserves the right to cancel the event with reasonable notice.",
+          title: "Low advance demand",
+          text: "If advance demand is exceptionally low, Jazzkeller Frankfurt may cancel the event with reasonable notice. In this case, no artist fee or compensation is payable.",
         },
       ],
     },
@@ -262,9 +263,9 @@ export const artistGuideEn: ArtistGuideContent = {
               caption: "of applicable net ticket revenue",
             },
             {
-              value: "€350 / €400",
+              value: "€400",
               label: "New York Jazz Bar",
-              caption: "up to 30 guests / from 31 guests",
+              caption: "fixed artist fee",
             },
             {
               value: "€75",
@@ -306,15 +307,12 @@ export const artistGuideEn: ArtistGuideContent = {
               id: "payout-nyjb",
               title: "New York Jazz Bar",
               icon: "music",
-              summary: "€350 up to 30 guests · €400 from 31 guests",
+              summary: "€400 fixed artist fee",
               blocks: [
                 {
                   type: "list",
                   style: "check",
-                  items: [
-                    "**€350** up to and including 30 guests.",
-                    "**€400** from 31 guests onward.",
-                  ],
+                  items: ["**€400** fixed artist fee."],
                 },
               ],
             },

@@ -198,12 +198,11 @@ New York Jazz Bar is not intended for:
 
 ## Payout
 Current rule:
-- **€350 up to and including 30 guests**
-- **€400 from 31 guests onward**
+- **€400 fixed artist fee**
 
-Preferred concise wording: `€350 up to 30 guests · €400 from 31 guests`
+Preferred concise wording: `€400 · fixed artist fee`
 
-Do not invent additional payout conditions.
+There is no guest-count tier. Do not invent additional payout conditions.
 
 ## Original compositions
 Current rule:
@@ -217,12 +216,14 @@ In rare cases, Jazzkeller Frankfurt reserves the right to cancel a New York Jazz
 
 Important:
 - this should happen with reasonable notice
+- in this case, no artist fee or compensation is payable
 - it should not be presented as a last-minute cancellation policy
 - do not specify a fixed number of hours or days unless confirmed later
+- do not publish a numeric demand threshold (e.g. a guest count)
 
 Suggested wording:
 
-> In rare cases, if advance demand is exceptionally low, Jazzkeller Frankfurt reserves the right to cancel the event with reasonable notice.
+> If advance demand is exceptionally low, Jazzkeller Frankfurt may cancel the event with reasonable notice. In this case, no artist fee or compensation is payable.
 
 ---
 
