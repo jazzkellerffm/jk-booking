@@ -101,7 +101,7 @@ export type ContentBlock =
   | { type: "steps"; items: Step[] }
   | { type: "accordion"; items: AccordionItem[] }
   | {
-      /** Example payouts as graduated bars; amounts are whole euros. */
+      /** Example payouts as graduated bars, calculated from `model` per price × guests. */
       type: "payoutPreview";
       eyebrow?: string;
       title: string;
@@ -109,7 +109,10 @@ export type ContentBlock =
       note?: RichText;
       /** Accessible name for the scenario pills, e.g. "Ticket price" */
       scenarioLabel: string;
-      scenarios: PayoutScenario[];
+      /** Whole-euro ticket prices, one pill each */
+      ticketPrices: number[];
+      guestCounts: number[];
+      model: { vatRate: number; artistShare: number; roundUpTo: number };
     }
   | {
       type: "action";

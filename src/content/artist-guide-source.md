@@ -165,20 +165,24 @@ Illustrative example calculations — not fixed guarantees. Show them as a visua
 
 Title: **Weekend payout examples**
 Supporting text: **Illustrative examples based on ticket price and attendance.**
-Note: **Based on 60% of applicable net online ticket revenue, rounded in favour of the artists.**
+Note: **Based on 60% of applicable net online ticket revenue. Example payouts are rounded up to the next €5 in favour of the artists and are not fixed guarantees.**
 
-Artist payout by ticket price and paying guests (rounded):
+The examples are an illustrative calculation aid, not a new payout contract. The public rule above (60% of applicable net ticket revenue) stays unchanged.
 
-| Paying guests | €28 ticket | €30 ticket | €35 ticket | €40 ticket |
-| --- | --- | --- | --- | --- |
-| 10 | €158 | €169 | €197 | €225 |
-| 20 | €315 | €337 | €393 | €449 |
-| 30 | €472 | €505 | €589 | €673 |
-| 40 | €629 | €673 | €786 | €898 |
-| 50 | €786 | €842 | €982 | €1,122 |
-| 60 | €943 | €1,010 | €1,178 | €1,346 |
+Example calculation (matches the JK Payout logic, "Default: rounds UP to next 5€ (in favor of musicians)"):
+1. gross revenue = ticket price × paying guests
+2. net revenue = gross revenue ÷ 1.07 (removes 7% VAT)
+3. artist share = net revenue × 60%
+4. payout = artist share rounded **up** to the next €5 increment; never rounded down; an amount already on a €5 increment stays as it is
 
-Use these values exactly. Do not derive or explain the underlying deductions. No payout previews for New York Jazz Bar, Jam Session or Riviera yet.
+Ticket prices shown: **€28, €30, €32, €35, €38, €40**
+Paying guests shown: **10, 20, 30, 40, 50, 60**
+
+Worked examples:
+- €40 × 50 guests: gross €2,000 → net ≈ €1,869.16 → 60% ≈ €1,121.50 → **€1,125**
+- €40 × 60 guests: 60% ≈ €1,345.79 → **€1,350**
+
+Show only the final rounded payout. No payout previews for New York Jazz Bar, Jam Session or Riviera yet.
 
 ## Sold-out / walk-in rule
 If the venue is fully sold out, Jazzkeller Frankfurt may retain additional spontaneous walk-in / door-ticket revenue to help cover club operating costs.

@@ -5,6 +5,7 @@ import { BulletList } from "@/components/ui/bullet-list";
 import { Card } from "@/components/ui/card";
 import { IconBadge } from "@/components/ui/icon-badge";
 import { PayoutPreview } from "@/components/content/payout-preview";
+import { revenueSharePayout } from "@/lib/payout";
 import { Notice } from "@/components/ui/notice";
 import { Pill } from "@/components/ui/pill";
 import { RichText } from "@/components/ui/rich-text";
@@ -170,7 +171,14 @@ function Block({ block }: { block: ContentBlock }) {
           eyebrow={block.eyebrow}
           note={block.note}
           scenarioLabel={block.scenarioLabel}
-          scenarios={block.scenarios}
+          scenarios={block.ticketPrices.map((price) => ({
+            id: String(price),
+            label: `€${price}`,
+            rows: block.guestCounts.map((guests) => ({
+              guests,
+              payout: revenueSharePayout(price, guests, block.model),
+            })),
+          }))}
           text={block.text}
           title={block.title}
         />

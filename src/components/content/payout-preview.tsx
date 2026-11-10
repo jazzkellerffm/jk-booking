@@ -70,39 +70,42 @@ export function PayoutPreview({
         <p className="eyebrow text-jk-secondary" id={`${baseId}-label`}>
           {scenarioLabel}
         </p>
-        <div
-          aria-labelledby={`${baseId}-label`}
-          className="flex gap-1 rounded-full bg-jk-primary/[0.04] p-1"
-          role="tablist"
-        >
-          {scenarios.map((scenario, index) => {
-            const active = scenario.id === selected.id;
+        {/* Scrolls edge-to-edge on narrow cards instead of wrapping or shrinking pills. */}
+        <div className="jk-no-scrollbar -mx-5 basis-[calc(100%+2.5rem)] overflow-x-auto px-5 sm:mx-0 sm:basis-auto sm:overflow-visible sm:px-0">
+          <div
+            aria-labelledby={`${baseId}-label`}
+            className="flex w-max gap-1 rounded-full bg-jk-primary/[0.04] p-1"
+            role="tablist"
+          >
+            {scenarios.map((scenario, index) => {
+              const active = scenario.id === selected.id;
 
-            return (
-              <button
-                aria-controls={panelId}
-                aria-selected={active}
-                className={cn(
-                  "ui-label inline-flex h-10 min-w-14 items-center justify-center rounded-full px-4 text-sm tabular-nums outline-none transition-colors duration-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-jk-brand-green",
-                  active
-                    ? "bg-jk-brand-green text-white shadow-jk-raised"
-                    : "text-jk-secondary hover:text-jk-primary",
-                )}
-                id={`${baseId}-tab-${scenario.id}`}
-                key={scenario.id}
-                onClick={() => setSelectedId(scenario.id)}
-                onKeyDown={(event) => onKeyDown(event, index)}
-                ref={(node) => {
-                  tabRefs.current[index] = node;
-                }}
-                role="tab"
-                tabIndex={active ? 0 : -1}
-                type="button"
-              >
-                {scenario.label}
-              </button>
-            );
-          })}
+              return (
+                <button
+                  aria-controls={panelId}
+                  aria-selected={active}
+                  className={cn(
+                    "ui-label inline-flex h-10 min-w-14 items-center justify-center rounded-full px-4 text-sm tabular-nums outline-none transition-colors duration-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-jk-brand-green",
+                    active
+                      ? "bg-jk-brand-green text-white shadow-jk-raised"
+                      : "text-jk-secondary hover:text-jk-primary",
+                  )}
+                  id={`${baseId}-tab-${scenario.id}`}
+                  key={scenario.id}
+                  onClick={() => setSelectedId(scenario.id)}
+                  onKeyDown={(event) => onKeyDown(event, index)}
+                  ref={(node) => {
+                    tabRefs.current[index] = node;
+                  }}
+                  role="tab"
+                  tabIndex={active ? 0 : -1}
+                  type="button"
+                >
+                  {scenario.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
