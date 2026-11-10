@@ -160,6 +160,26 @@ Important:
 - the exact technical definition of "applicable net ticket revenue" should not be expanded beyond what is stated here unless separately confirmed
 - do not invent fee deductions, tax formulas or ticketing calculations
 
+## Payout examples
+Illustrative example calculations — not fixed guarantees. Show them as a visual preview in the Payouts section.
+
+Title: **Weekend payout examples**
+Supporting text: **Illustrative examples based on ticket price and attendance.**
+Note: **Based on 60% of applicable net online ticket revenue, rounded in favour of the artists.**
+
+Artist payout by ticket price and paying guests (rounded):
+
+| Paying guests | €28 ticket | €30 ticket | €35 ticket | €40 ticket |
+| --- | --- | --- | --- | --- |
+| 10 | €158 | €169 | €197 | €225 |
+| 20 | €315 | €337 | €393 | €449 |
+| 30 | €472 | €505 | €589 | €673 |
+| 40 | €629 | €673 | €786 | €898 |
+| 50 | €786 | €842 | €982 | €1,122 |
+| 60 | €943 | €1,010 | €1,178 | €1,346 |
+
+Use these values exactly. Do not derive or explain the underlying deductions. No payout previews for New York Jazz Bar, Jam Session or Riviera yet.
+
 ## Sold-out / walk-in rule
 If the venue is fully sold out, Jazzkeller Frankfurt may retain additional spontaneous walk-in / door-ticket revenue to help cover club operating costs.
 

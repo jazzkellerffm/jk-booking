@@ -275,6 +275,64 @@ export const artistGuideEn: ArtistGuideContent = {
           ],
         },
         {
+          type: "payoutPreview",
+          eyebrow: "The Weekend",
+          title: "Weekend payout examples",
+          text: "Illustrative examples based on ticket price and attendance.",
+          note: "Based on 60% of applicable net online ticket revenue, rounded in favour of the artists. Example calculations, not fixed guarantees.",
+          scenarioLabel: "Ticket price",
+          scenarios: [
+            {
+              id: "28",
+              label: "€28",
+              rows: [
+                { guests: 10, payout: 158 },
+                { guests: 20, payout: 315 },
+                { guests: 30, payout: 472 },
+                { guests: 40, payout: 629 },
+                { guests: 50, payout: 786 },
+                { guests: 60, payout: 943 },
+              ],
+            },
+            {
+              id: "30",
+              label: "€30",
+              rows: [
+                { guests: 10, payout: 169 },
+                { guests: 20, payout: 337 },
+                { guests: 30, payout: 505 },
+                { guests: 40, payout: 673 },
+                { guests: 50, payout: 842 },
+                { guests: 60, payout: 1010 },
+              ],
+            },
+            {
+              id: "35",
+              label: "€35",
+              rows: [
+                { guests: 10, payout: 197 },
+                { guests: 20, payout: 393 },
+                { guests: 30, payout: 589 },
+                { guests: 40, payout: 786 },
+                { guests: 50, payout: 982 },
+                { guests: 60, payout: 1178 },
+              ],
+            },
+            {
+              id: "40",
+              label: "€40",
+              rows: [
+                { guests: 10, payout: 225 },
+                { guests: 20, payout: 449 },
+                { guests: 30, payout: 673 },
+                { guests: 40, payout: 898 },
+                { guests: 50, payout: 1122 },
+                { guests: 60, payout: 1346 },
+              ],
+            },
+          ],
+        },
+        {
           type: "accordion",
           items: [
             {

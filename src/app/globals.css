@@ -17,6 +17,10 @@
   --jk-brand-green-deep: #1b3029;
   --jk-sand: #c4a882;
   --jk-sand-light: #f3e9d2;
+  /* Soft accent for data visuals (payout previews) */
+  --jk-rose: #d6a39a;
+  --jk-rose-soft: #ebcbc4;
+  --jk-rose-light: #f7eeeb;
 
   --jk-shadow-card: 0 8px 24px -20px rgba(32, 53, 46, 0.35);
   --jk-shadow-raised: 0 12px 32px -24px rgba(32, 53, 46, 0.5);
@@ -46,6 +50,9 @@
   --color-jk-brand-green-deep: var(--jk-brand-green-deep);
   --color-jk-sand: var(--jk-sand);
   --color-jk-sand-light: var(--jk-sand-light);
+  --color-jk-rose: var(--jk-rose);
+  --color-jk-rose-soft: var(--jk-rose-soft);
+  --color-jk-rose-light: var(--jk-rose-light);
 
   --font-sans: var(--font-polysans);
   --font-display: var(--font-gustavo);

@@ -77,6 +77,14 @@ export type AccordionItem = {
   blocks: ContentBlock[];
 };
 
+/** One switchable scenario of a payout preview, e.g. a ticket price. */
+export type PayoutScenario = {
+  id: string;
+  /** Pill label, e.g. "€30" */
+  label: string;
+  rows: { guests: number; payout: number }[];
+};
+
 export type ContentBlock =
   | { type: "paragraph"; text: RichText; size?: "lead" | "body" }
   | { type: "list"; title?: string; style?: ListStyle; items: RichText[] }
@@ -92,6 +100,17 @@ export type ContentBlock =
   | { type: "tags"; title?: string; items: string[] }
   | { type: "steps"; items: Step[] }
   | { type: "accordion"; items: AccordionItem[] }
+  | {
+      /** Example payouts as graduated bars; amounts are whole euros. */
+      type: "payoutPreview";
+      eyebrow?: string;
+      title: string;
+      text?: RichText;
+      note?: RichText;
+      /** Accessible name for the scenario pills, e.g. "Ticket price" */
+      scenarioLabel: string;
+      scenarios: PayoutScenario[];
+    }
   | {
       type: "action";
       label: string;

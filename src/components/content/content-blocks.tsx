@@ -4,6 +4,7 @@ import { Accordion } from "@/components/ui/accordion";
 import { BulletList } from "@/components/ui/bullet-list";
 import { Card } from "@/components/ui/card";
 import { IconBadge } from "@/components/ui/icon-badge";
+import { PayoutPreview } from "@/components/content/payout-preview";
 import { Notice } from "@/components/ui/notice";
 import { Pill } from "@/components/ui/pill";
 import { RichText } from "@/components/ui/rich-text";
@@ -161,6 +162,18 @@ function Block({ block }: { block: ContentBlock }) {
             );
           })}
         </ol>
+      );
+
+    case "payoutPreview":
+      return (
+        <PayoutPreview
+          eyebrow={block.eyebrow}
+          note={block.note}
+          scenarioLabel={block.scenarioLabel}
+          scenarios={block.scenarios}
+          text={block.text}
+          title={block.title}
+        />
       );
 
     case "accordion":
