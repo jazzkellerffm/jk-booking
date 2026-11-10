@@ -86,14 +86,14 @@ body {
 .display-heading {
   font-family: var(--font-gustavo), Georgia, serif;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   line-height: 1.05;
 }
 
 .display-heading-regular {
   font-family: var(--font-gustavo), Georgia, serif;
   font-weight: 400;
-  letter-spacing: -0.015em;
+  letter-spacing: 0;
   line-height: 1.1;
 }
 

@@ -1,3 +1,5 @@
+import type { PayoutCalculation, PayoutScenario } from "@/content/types";
+
 export type RevenueShareModel = {
   /** e.g. 0.07 for 7% VAT included in the ticket price */
   vatRate: number;
@@ -18,4 +20,24 @@ export function revenueSharePayout(
   // increment up to the next one.
   const share = Math.round(net * model.artistShare * 100) / 100;
   return Math.ceil(share / model.roundUpTo) * model.roundUpTo;
+}
+
+/** Scenarios for a payout preview: one per ticket price, or one single-row scenario per fee bracket. */
+export function payoutScenarios(calculation: PayoutCalculation): PayoutScenario[] {
+  if (calculation.kind === "tiers") {
+    return calculation.tiers.map((tier, index) => ({
+      id: `tier-${index}`,
+      label: tier.guests,
+      rows: [tier],
+    }));
+  }
+
+  return calculation.ticketPrices.map((price) => ({
+    id: String(price),
+    label: `€${price}`,
+    rows: calculation.guestCounts.map((guests) => ({
+      guests: String(guests),
+      payout: revenueSharePayout(price, guests, calculation),
+    })),
+  }));
 }

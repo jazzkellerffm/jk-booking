@@ -182,7 +182,7 @@ Worked examples:
 - €40 × 50 guests: gross €2,000 → net ≈ €1,869.16 → 60% ≈ €1,121.50 → **€1,125**
 - €40 × 60 guests: 60% ≈ €1,345.79 → **€1,350**
 
-Show only the final rounded payout. No payout previews for New York Jazz Bar, Jam Session or Riviera yet.
+Show only the final rounded payout. No payout previews for New York Jazz Bar or Jam Session (fixed fees). Riviera has its own stepped fee preview in the same visual style (see §8a).
 
 ## Sold-out / walk-in rule
 If the venue is fully sold out, Jazzkeller Frankfurt may retain additional spontaneous walk-in / door-ticket revenue to help cover club operating costs.
@@ -320,11 +320,48 @@ Suggested wording:
 
 > A seasonal summer format with a relaxed, stylish atmosphere while remaining rooted in the Jazzkeller musical identity.
 
+## Payout — Summer Fee 2027
+Confirmed stepped fee model, based on actual paying attendance:
+
+| Paying guests | Artist fee |
+| --- | --- |
+| 0–20 | €400 |
+| 21–30 | €450 |
+| 31–40 | €500 |
+| 41–50 | €550 |
+| 51+ | €600 |
+
+Core rules:
+- **€400 guaranteed minimum artist fee**
+- the fee increases in **€50 steps**
+- **€600 maximum regular fixed fee**
+- based on **actual paying attendance**
+- initially applies to **selected Saturday dates in July and August 2027**
+- individually agreed alternative booking models remain valid
+
+This is a stepped fee model, not a revenue-share calculation. Do not present €600 as guaranteed; the €400 minimum must stay clear. Do not invent additional Riviera payout rules.
+
+Payout summary card: **RIVIERA CLUB · €600\* · Summer Fee 2027**
+Asterisk clarification: `* Up to €600 depending on paying attendance — see Summer Fee scale below.`
+€600 is the regular maximum, never described as guaranteed; the guaranteed minimum stays €400.
+
+Format panel key figure: **€400–€600 · Summer Fee 2027**
+
+Summer Fee scale (compact, interactive, same rose bar style as the Weekend payout examples):
+- attendance bracket pills: 0–20 · 21–30 · 31–40 · 41–50 · 51+
+- selecting a bracket shows that bracket, a rose bar sized to the fee, and the fee
+- default selection: **0–20 / €400** (the guaranteed minimum — €600 must not look like the default)
+- Title: **Riviera Summer Fee 2027**
+- Text: **A guaranteed €400 minimum, increasing in €50 steps according to paying attendance.**
+- Note: **Applies to selected Riviera Club Saturdays in July and August 2027. Individually agreed booking models remain valid.**
+
+Naming: keep **Riviera Club**. Do not generalise it into "Summer Formats", "Special Formats" or similar — other special formats may use individually agreed fixed fees and do not necessarily follow the Summer Fee model.
+
 Not yet confirmed — do not invent:
-- payout model
 - exact repertoire restrictions
-- exact dates
+- exact individual dates
 - exact production rules
+- hospitality rules specific to Riviera
 
 ---
 
@@ -472,6 +509,7 @@ For the first public guide, include only the basic technical overview (Technical
 
 ## PA & Monitoring
 - d&b audiotechnik professional PA system (use this exact brand spelling; may be presented confidently)
+- Allen & Heath Qu-16 digital mixer (exact product name; do not add further mixer specs)
 - 1 stage monitor (exact manufacturer / model TBD)
 
 ## Microphones
@@ -509,9 +547,23 @@ Suggested wording:
 
 Do not describe internal quarterly workflow or internal administrative timing in the public guide.
 
+GEMA is not a top-level navigation item. Keep the information on the page as a smaller operational section after Invoicing. Do not invent a new GEMA workflow.
+
 ---
 
 # 16. Invoicing & Payment
+
+## Flow after the concert
+Concert → final payout communicated → invoice submitted → payment
+
+## Final payout
+For bookings where the payout depends on attendance (revenue-share bookings such as The Weekend):
+
+> After the event, Jazzkeller Frankfurt provides the final payout amount so the artist knows exactly what to invoice.
+
+For fixed-fee formats such as New York Jazz Bar or Jam Session, the agreed fee is already known before the event. Do not overcomplicate this distinction.
+
+This step appears before the invoice step.
 
 ## Invoice submission
 Invoices must be submitted through:
@@ -559,6 +611,18 @@ Invoices must contain the usual legally required invoice details, including wher
 - correct tax exemption or small-business wording where applicable
 
 A collective invoice is preferred where appropriate because it simplifies bookkeeping.
+
+Presentation: show these details as a compact, scannable checklist (short rows), not a long text list or tag cloud. Short labels:
+- Artist / business name & address
+- Jazzkeller / customer details
+- Invoice date
+- Sequential invoice number
+- Performance date
+- Description of service
+- Correct net / tax / gross information
+- Correct exemption / small-business wording where applicable
+
+Do not add Germany / EU / non-EU tax logic here and do not imply tax advice.
 
 Do not turn the public Artist Guide into a full invoice manual.
 
@@ -703,9 +767,19 @@ Recommended order:
 8. Hospitality
 9. Guestlist
 10. Technical Basics
-11. GEMA
-12. Invoicing & Payment
-13. What Happens Next / Contact
+11. Invoicing & Payment
+12. GEMA (operational note, not in the main navigation)
+13. What Happens Next (not in the main navigation) / Contact
+
+Main section navigation pills:
+About · Profile · Formats · Payouts · Promotion · Concert day · Hospitality · Guestlist · Technical · Invoicing
+
+## What Happens Next
+- **01 Promotion** — Actively promote your appearance through your own channels.
+- **02 Concert day** — Arrive around 19:00, performance-ready, for setup and soundcheck.
+- **03 Final payout** — For revenue-share bookings, we provide the final payout amount after the event so you know exactly what to invoice.
+- **04 Submit invoice** — Submit your invoice via invoice.jazzkeller.com.
+- **05 Payment** — Payment is usually made by bank transfer within 30 days after receipt of a proper invoice.
 
 Dense sections should use accordions or expandable cards.
 
@@ -743,7 +817,7 @@ The app should clearly separate:
 
 Keep these out of public copy unless later confirmed:
 
-- Riviera payout model, exact dates, repertoire restrictions and production rules
+- Riviera exact individual dates, repertoire restrictions and production rules (the Summer Fee 2027 payout model is confirmed, see §8a)
 - exact Markbass bass amp model
 - exact Fender ’65 Reverb model / product naming
 - exact stage monitor manufacturer / model

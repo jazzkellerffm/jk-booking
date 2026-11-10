@@ -106,11 +106,25 @@ export function FormatExplorer({ formats }: { formats: GuideFormat[] }) {
           </p>
 
           {selected.keyFigure ? (
-            <div className="mt-6 flex items-center gap-4 rounded-inner bg-jk-sand-light p-4 ring-1 ring-jk-sand/30">
-              <p className="display-heading text-3xl leading-none text-jk-brand-green">
+            <div
+              className={cn(
+                "mt-6 flex rounded-inner bg-jk-sand-light p-4 ring-1 ring-jk-sand/30",
+                // Ranges like "€400–€600" leave no room for the label beside them on phones.
+                selected.keyFigure.value.length > 6
+                  ? "flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-4"
+                  : "items-center gap-4",
+              )}
+            >
+              <p className="display-heading text-3xl leading-none whitespace-nowrap text-jk-brand-green">
                 {selected.keyFigure.value}
               </p>
-              <span aria-hidden="true" className="h-8 w-px bg-jk-sand/60" />
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "h-8 w-px bg-jk-sand/60",
+                  selected.keyFigure.value.length > 6 && "hidden sm:block",
+                )}
+              />
               <p className="text-sm text-jk-primary/80">{selected.keyFigure.label}</p>
             </div>
           ) : null}

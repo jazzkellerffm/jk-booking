@@ -56,8 +56,8 @@ export type GuideFormat = {
 
 export type GuideSection = {
   id: string;
-  /** Short label for the sticky section navigation */
-  navLabel: string;
+  /** Short label for the sticky section navigation; omit to keep the section out of it */
+  navLabel?: string;
   eyebrow: string;
   title: string;
   icon: IconName;

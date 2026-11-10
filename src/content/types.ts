@@ -29,6 +29,7 @@ export type IconName =
   | "mail"
   | "megaphone"
   | "microphone"
+  | "mixer"
   | "monitor"
   | "moon"
   | "music"
@@ -82,8 +83,30 @@ export type PayoutScenario = {
   id: string;
   /** Pill label, e.g. "€30" */
   label: string;
-  rows: { guests: number; payout: number }[];
+  /** `guests` is a count or bracket, e.g. "30" or "21–30" */
+  rows: { guests: string; payout: number }[];
 };
+
+export type PayoutCalculation =
+  | {
+      /** Share of net ticket revenue, one scenario (pill) per ticket price */
+      kind: "revenueShare";
+      /** Accessible name for the scenario pills, e.g. "Ticket price" */
+      scenarioLabel: string;
+      /** Whole-euro ticket prices */
+      ticketPrices: number[];
+      guestCounts: number[];
+      vatRate: number;
+      artistShare: number;
+      roundUpTo: number;
+    }
+  | {
+      /** Fixed fee per paying-attendance bracket, one pill per bracket; the first is the default */
+      kind: "tiers";
+      /** Accessible name for the bracket pills, e.g. "Paying guests" */
+      scenarioLabel: string;
+      tiers: { guests: string; payout: number }[];
+    };
 
 export type ContentBlock =
   | { type: "paragraph"; text: RichText; size?: "lead" | "body" }
@@ -96,23 +119,25 @@ export type ContentBlock =
       icon?: IconName;
     }
   | { type: "facts"; title?: string; items: Fact[] }
-  | { type: "stats"; items: { value: string; label: string; caption?: RichText }[] }
+  | {
+      type: "stats";
+      items: { value: string; label: string; caption?: RichText }[];
+      /** Small print under the cards, e.g. explaining an asterisk */
+      footnote?: RichText;
+    }
+  /** Compact checklist rows for short required items */
+  | { type: "checklist"; title?: string; items: RichText[] }
   | { type: "tags"; title?: string; items: string[] }
   | { type: "steps"; items: Step[] }
   | { type: "accordion"; items: AccordionItem[] }
   | {
-      /** Example payouts as graduated bars, calculated from `model` per price × guests. */
+      /** Payouts as graduated rose bars; amounts are whole euros. */
       type: "payoutPreview";
       eyebrow?: string;
       title: string;
       text?: RichText;
       note?: RichText;
-      /** Accessible name for the scenario pills, e.g. "Ticket price" */
-      scenarioLabel: string;
-      /** Whole-euro ticket prices, one pill each */
-      ticketPrices: number[];
-      guestCounts: number[];
-      model: { vatRate: number; artistShare: number; roundUpTo: number };
+      calculation: PayoutCalculation;
     }
   | {
       type: "action";

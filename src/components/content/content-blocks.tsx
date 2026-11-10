@@ -1,11 +1,11 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import type { ContentBlock } from "@/content/types";
 import { Accordion } from "@/components/ui/accordion";
 import { BulletList } from "@/components/ui/bullet-list";
 import { Card } from "@/components/ui/card";
 import { IconBadge } from "@/components/ui/icon-badge";
 import { PayoutPreview } from "@/components/content/payout-preview";
-import { revenueSharePayout } from "@/lib/payout";
+import { payoutScenarios } from "@/lib/payout";
 import { Notice } from "@/components/ui/notice";
 import { Pill } from "@/components/ui/pill";
 import { RichText } from "@/components/ui/rich-text";
@@ -77,46 +77,85 @@ function Block({ block }: { block: ContentBlock }) {
 
     case "stats":
       return (
-        <div
-          className={cn(
-            "grid gap-2",
-            block.items.length === 3 ? "md:grid-cols-3" : "grid-cols-2",
-          )}
-        >
-          {block.items.map((stat, index) => {
-            const dark = index === 0;
+        <div>
+          <div
+            className={cn(
+              "grid gap-2",
+              block.items.length === 3
+                ? "md:grid-cols-3"
+                : block.items.length === 4
+                  ? "sm:grid-cols-2"
+                  : "grid-cols-2",
+            )}
+          >
+            {block.items.map((stat, index) => {
+              const dark = index === 0;
 
-            return (
-              <Card
-                className="flex flex-col px-5 py-5 sm:py-6"
-                key={stat.label}
-                tone={dark ? "dark" : "tint"}
-              >
-                <p className={cn("eyebrow", dark ? "text-jk-sand" : "text-jk-brand-green")}>
-                  {stat.label}
-                </p>
-                <p
-                  className={cn(
-                    "display-heading mt-3 leading-none whitespace-nowrap",
-                    block.items.length === 3 ? "text-4xl md:text-[1.625rem]" : "text-4xl sm:text-5xl",
-                    dark ? "text-white" : "text-jk-brand-green",
-                  )}
+              return (
+                <Card
+                  className="flex flex-col px-5 py-5 sm:py-6"
+                  key={stat.label}
+                  tone={dark ? "dark" : "tint"}
                 >
-                  {stat.value}
-                </p>
-                {stat.caption ? (
+                  <p className={cn("eyebrow", dark ? "text-jk-sand" : "text-jk-brand-green")}>
+                    {stat.label}
+                  </p>
                   <p
                     className={cn(
-                      "mt-3 text-sm",
-                      dark ? "text-jk-cream/75" : "text-jk-secondary",
+                      "display-heading mt-3 leading-none whitespace-nowrap",
+                      block.items.length === 3
+                        ? "text-4xl md:text-[1.625rem]"
+                        : block.items.length === 4
+                          ? "text-4xl"
+                          : "text-4xl sm:text-5xl",
+                      dark ? "text-white" : "text-jk-brand-green",
                     )}
                   >
-                    {stat.caption}
+                    {stat.value}
                   </p>
-                ) : null}
-              </Card>
-            );
-          })}
+                  {stat.caption ? (
+                    <p
+                      className={cn(
+                        "mt-3 text-sm",
+                        dark ? "text-jk-cream/75" : "text-jk-secondary",
+                      )}
+                    >
+                      {stat.caption}
+                    </p>
+                  ) : null}
+                </Card>
+              );
+            })}
+          </div>
+          {block.footnote ? (
+            <p className="mt-3 px-1 text-sm leading-5 text-jk-secondary">
+              <RichText text={block.footnote} />
+            </p>
+          ) : null}
+        </div>
+      );
+
+    case "checklist":
+      return (
+        <div>
+          {block.title ? (
+            <p className="eyebrow mb-2 px-1 text-jk-secondary">{block.title}</p>
+          ) : null}
+          <ul className="grid gap-1 sm:grid-cols-2">
+            {block.items.map((item) => (
+              <li
+                className="flex items-start gap-2.5 rounded-control bg-jk-brand-green/[0.05] px-3 py-2 text-sm leading-5 text-jk-primary"
+                key={item}
+              >
+                <span className="mt-px inline-flex h-[1.125rem] w-[1.125rem] shrink-0 items-center justify-center rounded-full bg-jk-brand-green/10 text-jk-brand-green">
+                  <Check aria-hidden="true" className="h-3 w-3" strokeWidth={2.25} />
+                </span>
+                <span className="min-w-0">
+                  <RichText text={item} />
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       );
 
@@ -170,15 +209,8 @@ function Block({ block }: { block: ContentBlock }) {
         <PayoutPreview
           eyebrow={block.eyebrow}
           note={block.note}
-          scenarioLabel={block.scenarioLabel}
-          scenarios={block.ticketPrices.map((price) => ({
-            id: String(price),
-            label: `€${price}`,
-            rows: block.guestCounts.map((guests) => ({
-              guests,
-              payout: revenueSharePayout(price, guests, block.model),
-            })),
-          }))}
+          scenarioLabel={block.calculation.scenarioLabel}
+          scenarios={payoutScenarios(block.calculation)}
           text={block.text}
           title={block.title}
         />

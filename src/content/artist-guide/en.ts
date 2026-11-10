@@ -135,7 +135,13 @@ export const artistGuideEn: ArtistGuideContent = {
       tagline: "Seasonal summer nights",
       summary:
         "A seasonal summer format with a relaxed, stylish atmosphere while remaining rooted in the Jazzkeller musical identity.",
-      points: ["A lighter, more relaxed summer atmosphere."],
+      keyFigure: { value: "€400–€600", label: "Summer Fee 2027" },
+      points: [
+        "A lighter, more relaxed summer atmosphere.",
+        "Summer Fee 2027: **€400 guaranteed minimum**, increasing in €50 steps according to actual paying attendance, up to a regular maximum of €600.",
+        "Initially applies to selected Saturday dates in July and August 2027.",
+        "Individually agreed alternative booking models remain valid.",
+      ],
     },
   ],
 
@@ -272,7 +278,13 @@ export const artistGuideEn: ArtistGuideContent = {
               label: "Jam Session",
               caption: "per person · max. 4 · from 2027",
             },
+            {
+              value: "€600*",
+              label: "Riviera Club",
+              caption: "Summer Fee 2027",
+            },
           ],
+          footnote: "* Up to €600 depending on paying attendance — see Summer Fee scale below.",
         },
         {
           type: "payoutPreview",
@@ -280,10 +292,33 @@ export const artistGuideEn: ArtistGuideContent = {
           title: "Weekend payout examples",
           text: "Illustrative examples based on ticket price and attendance.",
           note: "Based on 60% of applicable net online ticket revenue. Example payouts are rounded up to the next €5 in favour of the artists and are not fixed guarantees.",
-          scenarioLabel: "Ticket price",
-          ticketPrices: [28, 30, 32, 35, 38, 40],
-          guestCounts: [10, 20, 30, 40, 50, 60],
-          model: { vatRate: 0.07, artistShare: 0.6, roundUpTo: 5 },
+          calculation: {
+            kind: "revenueShare",
+            scenarioLabel: "Ticket price",
+            ticketPrices: [28, 30, 32, 35, 38, 40],
+            guestCounts: [10, 20, 30, 40, 50, 60],
+            vatRate: 0.07,
+            artistShare: 0.6,
+            roundUpTo: 5,
+          },
+        },
+        {
+          type: "payoutPreview",
+          eyebrow: "Riviera Club",
+          title: "Riviera Summer Fee 2027",
+          text: "A guaranteed **€400 minimum**, increasing in €50 steps according to paying attendance.",
+          note: "Applies to selected Riviera Club Saturdays in July and August 2027. Individually agreed booking models remain valid.",
+          calculation: {
+            kind: "tiers",
+            scenarioLabel: "Paying guests",
+            tiers: [
+              { guests: "0–20", payout: 400 },
+              { guests: "21–30", payout: 450 },
+              { guests: "31–40", payout: 500 },
+              { guests: "41–50", payout: 550 },
+              { guests: "51+", payout: 600 },
+            ],
+          },
         },
         {
           type: "accordion",
@@ -337,6 +372,24 @@ export const artistGuideEn: ArtistGuideContent = {
                   type: "list",
                   style: "check",
                   items: ["From 2027: **€75 per person, maximum 4 persons**."],
+                },
+              ],
+            },
+            {
+              id: "payout-riviera",
+              title: "Riviera Club",
+              icon: "riviera",
+              summary: "€400 minimum, up to €600 · Summer Fee 2027",
+              blocks: [
+                {
+                  type: "list",
+                  style: "check",
+                  items: [
+                    "**€400 guaranteed minimum** artist fee.",
+                    "The fee increases in **€50 steps** according to actual paying attendance, up to a regular maximum fixed fee of **€600**.",
+                    "Initially applies to selected Saturday dates in July and August 2027.",
+                    "Individually agreed alternative booking models remain valid.",
+                  ],
                 },
               ],
             },
@@ -518,6 +571,7 @@ export const artistGuideEn: ArtistGuideContent = {
           title: "PA, monitoring & microphones",
           items: [
             { icon: "pa", label: "PA", value: "d&b audiotechnik professional PA system" },
+            { icon: "mixer", label: "Mixer", value: "Allen & Heath Qu-16 digital mixer" },
             { icon: "monitor", label: "Monitoring", value: "1 stage monitor" },
             { icon: "microphone", label: "Microphones", value: "4 × Shure SM58" },
           ],
@@ -544,31 +598,20 @@ export const artistGuideEn: ArtistGuideContent = {
       ],
     },
     {
-      id: "gema",
-      navLabel: "GEMA",
-      eyebrow: "Registration",
-      title: "GEMA",
-      icon: "gema",
-      blocks: [
-        {
-          type: "notice",
-          tone: "important",
-          text: "Please do not register the event independently with GEMA. Jazzkeller Frankfurt handles the organiser-side registration centrally and will provide further instructions if required.",
-        },
-        {
-          type: "paragraph",
-          text: "Independent or premature registration can lead to duplicate or incorrect registrations.",
-        },
-      ],
-    },
-    {
       id: "invoicing",
       navLabel: "Invoicing",
       eyebrow: "Getting paid",
       title: "Invoicing & Payment",
       icon: "invoice",
-      lead: "Invoices are submitted through invoice.jazzkeller.com. Payment is usually made within 30 days after receipt of a proper invoice.",
+      lead: "After the concert: final payout, invoice, payment. Invoices are submitted through invoice.jazzkeller.com and paid by bank transfer, usually within 30 days.",
       blocks: [
+        {
+          type: "notice",
+          tone: "info",
+          icon: "payout",
+          title: "Final payout",
+          text: "For revenue-share bookings such as The Weekend, Jazzkeller Frankfurt provides the final payout amount after the event, so you know exactly what to invoice. For fixed-fee formats such as New York Jazz Bar or Jam Session, the agreed fee is already known before the event.",
+        },
         {
           type: "action",
           label: "invoice.jazzkeller.com",
@@ -625,18 +668,17 @@ export const artistGuideEn: ArtistGuideContent = {
               summary: "Usual legally required details",
               blocks: [
                 {
-                  type: "list",
+                  type: "checklist",
                   title: "Including, where applicable",
-                  style: "dot",
                   items: [
-                    "Artist / business name and address",
+                    "Artist / business name & address",
                     "Jazzkeller / customer details",
                     "Invoice date",
                     "Sequential invoice number",
                     "Performance date",
                     "Description of service",
                     "Correct net / tax / gross information",
-                    "Correct tax exemption or small-business wording",
+                    "Correct exemption / small-business wording where applicable",
                   ],
                 },
                 {
@@ -662,8 +704,24 @@ export const artistGuideEn: ArtistGuideContent = {
       ],
     },
     {
+      id: "gema",
+      eyebrow: "Registration",
+      title: "GEMA",
+      icon: "gema",
+      blocks: [
+        {
+          type: "notice",
+          tone: "important",
+          text: "Please do not register the event independently with GEMA. Jazzkeller Frankfurt handles the organiser-side registration centrally and will provide further instructions if required.",
+        },
+        {
+          type: "paragraph",
+          text: "Independent or premature registration can lead to duplicate or incorrect registrations.",
+        },
+      ],
+    },
+    {
       id: "next",
-      navLabel: "Next steps",
       eyebrow: "What happens next",
       title: "What Happens Next",
       icon: "next",
@@ -683,8 +741,18 @@ export const artistGuideEn: ArtistGuideContent = {
             },
             {
               marker: "03",
-              title: "Invoice & payment",
-              text: "Submit your invoice via [invoice.jazzkeller.com](https://invoice.jazzkeller.com). Payment by bank transfer to an EU-based IBAN, usually within 30 days.",
+              title: "Final payout",
+              text: "For revenue-share bookings, we provide the final payout amount after the event so you know exactly what to invoice.",
+            },
+            {
+              marker: "04",
+              title: "Submit invoice",
+              text: "Submit your invoice via [invoice.jazzkeller.com](https://invoice.jazzkeller.com).",
+            },
+            {
+              marker: "05",
+              title: "Payment",
+              text: "Payment is usually made by bank transfer within 30 days after receipt of a proper invoice.",
             },
           ],
         },
@@ -712,7 +780,7 @@ export const artistGuideEn: ArtistGuideContent = {
     },
     {
       field: "formats.riviera",
-      note: "Riviera payout model, dates, repertoire restrictions and production rules are not confirmed (source §8a).",
+      note: "Riviera exact individual dates, repertoire restrictions and production rules are not confirmed; the Summer Fee 2027 payout model is (source §8a).",
     },
     {
       field: "sections.technical.bass",

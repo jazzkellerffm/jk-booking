@@ -6,10 +6,9 @@ import { QuickFacts } from "@/components/artist-guide/quick-facts";
 import { SectionNav } from "@/components/artist-guide/section-nav";
 
 export function ArtistGuidePage({ guide }: { guide: ArtistGuideContent }) {
-  const navItems = guide.sections.map((section) => ({
-    id: section.id,
-    label: section.navLabel,
-  }));
+  const navItems = guide.sections.flatMap((section) =>
+    section.navLabel ? [{ id: section.id, label: section.navLabel }] : [],
+  );
 
   return (
     <>
