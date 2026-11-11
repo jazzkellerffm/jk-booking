@@ -125,6 +125,8 @@ export type ContentBlock =
       /** Small print under the cards, e.g. explaining an asterisk */
       footnote?: RichText;
     }
+  /** Static fact tiles (2×2 on mobile, 4 across on desktop); never interactive */
+  | { type: "highlights"; items: { icon?: IconName; title: string; text: string }[] }
   /** Compact checklist rows for short required items */
   | { type: "checklist"; title?: string; items: RichText[] }
   | { type: "tags"; title?: string; items: string[] }

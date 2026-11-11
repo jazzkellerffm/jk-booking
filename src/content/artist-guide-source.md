@@ -48,11 +48,18 @@ Do **not** build those future modules yet.
 Jazzkeller Frankfurt is a privately run, independent jazz club.
 
 Key facts:
+- historic jazz club, **since 1952**
 - privately operated
 - not publicly funded
 - approximately 60 seats
-- intimate club setting
+- intimate cellar venue / club setting
 - the club operates differently from many publicly funded or nonprofit jazz venues
+
+Fact tiles (About section, compact, non-interactive):
+- **Since 1952** — Historic jazz club
+- **Independent** — Privately run
+- **No public funding** — Independent operating model
+- **≈60 seats** — Intimate cellar venue
 
 Artists should not automatically assume that the venue provides:
 - hotel accommodation

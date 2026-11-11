@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Mail } from "lucide-react";
+import { Mail, Receipt } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ModuleNav } from "@/components/layout/module-nav";
 import { cn } from "@/lib/cn";
@@ -10,6 +10,10 @@ import { mailto, site } from "@/lib/site";
 
 /** Vertical probe point (px from top) used to detect what is under the header. */
 const PROBE_Y = 32;
+
+/** Shared shape for the header utility pair; tone classes set the hierarchy. */
+const utilityButton =
+  "ui-label inline-flex h-10 items-center gap-2 rounded-full text-sm whitespace-nowrap ring-1 ring-inset outline-none transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2";
 
 /**
  * Header is h-16; the guide's sticky section nav sits at `top-16`.
@@ -25,11 +29,11 @@ export function AppHeader() {
         onDark ? "border-white/10 bg-white/[0.06]" : "border-jk-primary/[0.07] bg-white/70",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-5 sm:px-8">
+      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-2 px-5 sm:gap-4 sm:px-8">
         <Link
           aria-label={`${site.productName} — ${site.venueName}`}
           className={cn(
-            "flex min-w-0 items-center gap-3 rounded-sm outline-none focus-visible:outline-2 focus-visible:outline-offset-4",
+            "flex min-w-0 items-center gap-2.5 rounded-sm sm:gap-3 outline-none focus-visible:outline-2 focus-visible:outline-offset-4",
             onDark ? "focus-visible:outline-white" : "focus-visible:outline-jk-brand-green",
           )}
           href="/"
@@ -66,18 +70,35 @@ export function AppHeader() {
           </span>
         </Link>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
           <ModuleNav />
           <a
+            aria-label="Upload invoice (opens invoice.jazzkeller.com)"
             className={cn(
-              "ui-label inline-flex h-10 items-center gap-2 rounded-full px-4 text-sm outline-none transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2",
+              utilityButton,
+              "w-10 justify-center sm:w-auto sm:px-4",
               onDark
-                ? "text-white ring-1 ring-inset ring-white/30 hover:bg-white/10 focus-visible:outline-white"
-                : "text-jk-primary ring-1 ring-inset ring-jk-primary/12 hover:bg-jk-primary/5 focus-visible:outline-jk-brand-green",
+                ? "bg-white/[0.06] text-white/75 ring-white/15 hover:bg-white/10 hover:text-white focus-visible:outline-white"
+                : "bg-jk-primary/[0.03] text-jk-secondary ring-jk-primary/[0.08] hover:bg-jk-primary/[0.06] hover:text-jk-primary focus-visible:outline-jk-brand-green",
+            )}
+            href={site.links.invoicePortal}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Receipt aria-hidden="true" className="h-4 w-4 shrink-0" strokeWidth={2} />
+            <span className="hidden sm:inline">Upload invoice</span>
+          </a>
+          <a
+            className={cn(
+              utilityButton,
+              "px-3 sm:px-4",
+              onDark
+                ? "bg-white/[0.12] text-white ring-white/35 hover:bg-white/20 focus-visible:outline-white"
+                : "bg-white text-jk-primary ring-jk-primary/[0.16] hover:bg-jk-primary/5 focus-visible:outline-jk-brand-green",
             )}
             href={mailto(site.contacts.booking.email)}
           >
-            <Mail aria-hidden="true" className="h-4 w-4" strokeWidth={2} />
+            <Mail aria-hidden="true" className="h-4 w-4 shrink-0" strokeWidth={2} />
             <span>Contact</span>
           </a>
         </div>

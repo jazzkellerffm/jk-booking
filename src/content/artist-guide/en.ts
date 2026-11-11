@@ -155,11 +155,12 @@ export const artistGuideEn: ArtistGuideContent = {
       lead: "Jazzkeller Frankfurt is an independent, privately run jazz club with its own operating model.",
       blocks: [
         {
-          type: "facts",
+          type: "highlights",
           items: [
-            { icon: "building", label: "Privately run", value: "Independent club" },
-            { icon: "ban", label: "Funding", value: "Not publicly funded" },
-            { icon: "seats", label: "Intimate room", value: "Around 60 seats" },
+            { icon: "calendar", title: "Since 1952", text: "Historic jazz club" },
+            { icon: "building", title: "Independent", text: "Privately run" },
+            { icon: "ban", title: "No public funding", text: "Independent operating model" },
+            { icon: "seats", title: "≈60 seats", text: "Intimate cellar venue" },
           ],
         },
         {

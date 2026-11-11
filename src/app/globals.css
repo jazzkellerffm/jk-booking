@@ -17,6 +17,8 @@
   --jk-brand-green-deep: #1b3029;
   --jk-sand: #c4a882;
   --jk-sand-light: #f3e9d2;
+  /* Champagne: key fee / value highlights only */
+  --jk-champagne: #f4ead5;
   /* Soft accent for data visuals (payout previews) */
   --jk-rose: #d6a39a;
   --jk-rose-soft: #ebcbc4;
@@ -50,6 +52,7 @@
   --color-jk-brand-green-deep: var(--jk-brand-green-deep);
   --color-jk-sand: var(--jk-sand);
   --color-jk-sand-light: var(--jk-sand-light);
+  --color-jk-champagne: var(--jk-champagne);
   --color-jk-rose: var(--jk-rose);
   --color-jk-rose-soft: var(--jk-rose-soft);
   --color-jk-rose-light: var(--jk-rose-light);

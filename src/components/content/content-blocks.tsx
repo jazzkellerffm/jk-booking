@@ -135,6 +135,24 @@ function Block({ block }: { block: ContentBlock }) {
         </div>
       );
 
+    case "highlights":
+      return (
+        <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {block.items.map((item) => (
+            <li
+              className="flex cursor-default flex-col rounded-inner bg-jk-card p-5 ring-1 ring-jk-primary/[0.04]"
+              key={item.title}
+            >
+              {item.icon ? <IconBadge name={item.icon} size="sm" /> : null}
+              <p className="display-heading mt-4 text-lg leading-tight tracking-normal text-jk-primary">
+                {item.title}
+              </p>
+              <p className="mt-1 text-sm leading-5 text-jk-secondary">{item.text}</p>
+            </li>
+          ))}
+        </ul>
+      );
+
     case "checklist":
       return (
         <div>
