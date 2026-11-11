@@ -52,6 +52,7 @@ export function PayoutPreview({
       item.scenarios.flatMap((scenario) => scenario.rows.map((row) => row.payout)),
     ),
   );
+  const unit = group.unit ?? "guests";
   const panelId = `${baseId}-panel`;
   const groupSwitchable = groups.length > 1;
   const switchable = scenarios.length > 1;
@@ -114,7 +115,7 @@ export function PayoutPreview({
                 <span className="ui-label text-body text-jk-primary tabular-nums">
                   {selected.rows[0].guests}
                 </span>{" "}
-                guests
+                {unit}
               </p>
               <p className="display-heading text-4xl leading-none text-jk-brand-green tabular-nums">
                 {euro.format(selected.rows[0].payout)}
@@ -129,7 +130,7 @@ export function PayoutPreview({
               <li className="col-span-3 grid grid-cols-subgrid items-center" key={row.guests}>
                 <span className="text-sm leading-tight whitespace-nowrap text-jk-secondary">
                   <span className="ui-label text-body text-jk-primary tabular-nums">{row.guests}</span>{" "}
-                  guests
+                  {unit}
                 </span>
                 <Bar max={max} payout={row.payout} />
                 <span className="ui-label text-right text-body text-jk-primary tabular-nums">

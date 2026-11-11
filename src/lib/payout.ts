@@ -54,6 +54,25 @@ export function payoutScenarioGroups(calculation: PayoutCalculation): PayoutScen
     case "tiers":
       return [{ id: "all", label: "", scenarios: tierScenarios(calculation.tiers) }];
 
+    case "perMusician":
+      return [
+        {
+          id: "all",
+          label: "",
+          unit: `musicians × €${calculation.feePerMusician}`,
+          scenarios: calculation.lineUps.map((lineUp) => ({
+            id: lineUp.label.toLowerCase(),
+            label: lineUp.label,
+            rows: [
+              {
+                guests: String(lineUp.musicians),
+                payout: lineUp.musicians * calculation.feePerMusician,
+              },
+            ],
+          })),
+        },
+      ];
+
     case "revenueShare":
       return [
         {

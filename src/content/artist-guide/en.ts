@@ -36,14 +36,21 @@ export const artistGuideEn: ArtistGuideContent = {
       name: "The Weekend",
       schedule: "Friday · Saturday",
       icon: "moon",
-      tagline: "Artist-led concert nights",
+      tagline: "Flagship weekend concerts",
       summary:
-        "Our most artist-led concert format. Artists may present a broader concert programme than on New York Jazz Bar nights, while still fitting the general Jazzkeller musical identity.",
+        "Our flagship concert format for established artists, special guests and standout weekend programmes. The Weekend gives artists room for their own repertoire while staying connected to the Jazzkeller musical identity.",
       keyFigure: { value: "60%", label: "of applicable net ticket revenue" },
       points: [
         "Artists receive **60% of the applicable net ticket revenue**.",
         "If the calculation creates an uneven amount, rounding is always **in favour of the artists** — never rounded down against them.",
         "Sunday dates follow The Weekend booking and payout logic unless individually agreed otherwise.",
+      ],
+      goodFit: [
+        "Established artists",
+        "International guests",
+        "Special projects",
+        "Standout listening concerts",
+        "Artist-led repertoire",
       ],
       notices: [
         {
@@ -59,7 +66,7 @@ export const artistGuideEn: ArtistGuideContent = {
       icon: "music",
       tagline: "Curated, repertoire-based nights",
       summary:
-        "A curated, format-first evening built around accessible jazz repertoire in a New York club style — not a free artist showcase.",
+        "A curated club night inspired by New York jazz bars and Village-style nightlife — cocktails, atmosphere and accessible repertoire at the centre of the evening. The music should feel alive, social and atmospheric — never sleepy or overly introspective.",
       keyFigure: { value: "€400", label: "Regular guaranteed fee" },
       points: [
         "Regular season (16 September – 30 April): **€400 guaranteed artist fee**, increasing to €500 when 60 or more paying guests attend.",
@@ -74,10 +81,12 @@ export const artistGuideEn: ArtistGuideContent = {
         "Hardbop",
         "Straight-Ahead Jazz",
         "Soul Jazz",
-        "Organ Jazz, where appropriate",
+        "Organ Jazz",
+        "Bossa Nova",
+        "Brazilian Jazz",
         "Latin Jazz",
-        "Salsa-influenced / Latin-oriented evenings",
-        "Accessible New York club-style repertoire",
+        "Groove-oriented repertoire",
+        "Mediterranean, Spanish or Italian influences, where they fit",
       ],
       notFor: [
         "Album-release concerts",
@@ -101,10 +110,12 @@ export const artistGuideEn: ArtistGuideContent = {
       icon: "session",
       tagline: "Straight-ahead session nights",
       summary:
-        "The Jam Session follows the general musical identity of Jazzkeller Frankfurt.",
-      keyFigure: { value: "€75", label: "per person · max. 4 persons · from 2027" },
+        "The evening begins with an opener set of around 45 minutes. The opener band then remains on stage as the musical host and rhythm-section foundation for the open jam session.",
+      keyFigure: { value: "€80", label: "per performing musician" },
       points: [
-        "Payout from 2027: **€75 per person, maximum 4 persons**.",
+        "Energetic, communicative and session-friendly repertoire works best.",
+        "Standard opener examples: trio **€240** · quartet **€320** · quintet **€400**.",
+        "Individually confirmed existing terms remain valid.",
         "**3 drink tickets** per performing musician.",
         "No guestlist.",
       ],
@@ -112,14 +123,18 @@ export const artistGuideEn: ArtistGuideContent = {
         "Swing",
         "Bebop",
         "Hardbop",
-        "New York-style jazz",
-        "Jazz standards",
-        "Latin jazz",
+        "Straight-Ahead Jazz",
+        "Jazz Standards",
+        "Soul Jazz",
+        "Bossa Nova",
+        "Brazilian Jazz",
+        "Latin Jazz",
+        "Groove-oriented repertoire",
       ],
       notFor: [
-        "Avant-garde platform",
-        "Experimental platform",
-        "Abstract contemporary showcase",
+        "Free-jazz laboratory",
+        "Experimental showcase",
+        "Passive or meditative concert programmes",
       ],
       notices: [
         {
@@ -135,13 +150,20 @@ export const artistGuideEn: ArtistGuideContent = {
       icon: "riviera",
       tagline: "Seasonal summer nights",
       summary:
-        "A seasonal summer format with a relaxed, stylish atmosphere while remaining rooted in the Jazzkeller musical identity.",
+        "A seasonal summer format with a lighter Mediterranean feel — relaxed, stylish and groove-led, while remaining rooted in the Jazzkeller musical identity.",
       keyFigure: { value: "€400–€600", label: "Summer Fee 2027" },
       points: [
-        "A lighter, more relaxed summer atmosphere.",
         "Summer Fee 2027: **€400 guaranteed minimum**, increasing in €50 steps according to actual paying attendance, up to a regular maximum of €600.",
         "Initially applies to selected Saturday dates in July and August 2027.",
         "Individually agreed alternative booking models remain valid.",
+      ],
+      goodFit: [
+        "Latin Jazz",
+        "Brazilian Jazz",
+        "Bossa Nova",
+        "Groove-oriented jazz",
+        "Mediterranean influences",
+        "Spanish or Italian influences",
       ],
     },
   ],
@@ -277,9 +299,10 @@ export const artistGuideEn: ArtistGuideContent = {
               detail: "Summer €300–€500 · Full House €500",
             },
             {
-              value: "€75",
+              value: "€80",
               label: "Jam Session",
-              caption: "per person · max. 4 · from 2027",
+              caption: "per performing musician",
+              detail: "Trio €240 · Quartet €320 · Quintet €400",
             },
             {
               value: "€600*",
@@ -339,6 +362,23 @@ export const artistGuideEn: ArtistGuideContent = {
                   { guests: "60+", payout: 500 },
                 ],
               },
+            ],
+          },
+        },
+        {
+          type: "payoutPreview",
+          eyebrow: "Jam Session",
+          title: "Jam Session Opener Fee",
+          text: "**€80 per performing musician.** A simple flat-rate opener fee based on the number of performing musicians.",
+          note: "Standard examples: trio €240 · quartet €320 · quintet €400. Individually confirmed existing terms remain valid.",
+          calculation: {
+            kind: "perMusician",
+            scenarioLabel: "Line-up",
+            feePerMusician: 80,
+            lineUps: [
+              { label: "Trio", musicians: 3 },
+              { label: "Quartet", musicians: 4 },
+              { label: "Quintet", musicians: 5 },
             ],
           },
         },
@@ -427,12 +467,15 @@ export const artistGuideEn: ArtistGuideContent = {
               id: "payout-jam",
               title: "Jam Session",
               icon: "session",
-              summary: "€75 per person, max. 4 · from 2027",
+              summary: "€80 per performing musician",
               blocks: [
                 {
                   type: "list",
                   style: "check",
-                  items: ["From 2027: **€75 per person, maximum 4 persons**."],
+                  items: [
+                    "From 2027: **€80 per performing opener musician** — a flat-rate fee, independent of attendance.",
+                    "Individually confirmed existing terms remain valid.",
+                  ],
                 },
               ],
             },
@@ -464,7 +507,7 @@ export const artistGuideEn: ArtistGuideContent = {
           type: "notice",
           tone: "neutral",
           title: "Paying attendance",
-          text: "Paying attendance is based primarily on verified online ticket sales. Paying door guests are added to the final count. Complimentary guests and staff are not included. Multi-person tickets count by the people included — CLUB 2 = 2 guests, CLUB 3 = 3, CLUB 4 = 4. On request, the relevant attendance figures can be verified from the digital ticketing records.",
+          text: "Paying attendance is based on verified online ticket sales plus paying door guests. Complimentary guests and staff are not included. Multi-person tickets count by the number of people included.",
         },
       ],
     },
@@ -503,7 +546,8 @@ export const artistGuideEn: ArtistGuideContent = {
             {
               marker: "~19:00",
               title: "Artist access",
-              text: "Artist access normally begins around 19:00.",
+              text: "Artist access normally begins around 19:00, or as individually agreed.",
+              note: "Sunday dates normally require earlier access, usually around 18:00, unless individually agreed otherwise.",
             },
             {
               marker: "Setup",
@@ -514,6 +558,16 @@ export const artistGuideEn: ArtistGuideContent = {
               marker: "Doors",
               title: "Doors",
               text: "Around 20:00 on Wednesdays and Thursdays, around 20:30 on Fridays and Saturdays.",
+            },
+            {
+              marker: "Show",
+              title: "Show start",
+              text: "21:00 on Wednesdays and Thursdays. 21:30 on Fridays and Saturdays.",
+            },
+            {
+              marker: "Sets",
+              title: "Performance structure",
+              text: "Normally 2 sets of approximately 45 minutes, with a 15–20 minute break.",
             },
           ],
         },
@@ -556,11 +610,11 @@ export const artistGuideEn: ArtistGuideContent = {
               id: "hospitality-jam",
               title: "Jam Session",
               icon: "ticket",
-              summary: "3 drink tickets per person",
+              summary: "Unlimited water · 3 drink tickets",
               blocks: [
                 {
                   type: "paragraph",
-                  text: "Each performing musician receives **3 drink tickets**.",
+                  text: "**Water is unlimited** for performing musicians. In addition, each performing musician receives **3 drink tickets** for beer, wine, soft drinks and simple mixed drinks. Cocktails are not included.",
                 },
               ],
             },
@@ -681,7 +735,7 @@ export const artistGuideEn: ArtistGuideContent = {
           tone: "info",
           icon: "payout",
           title: "Final payout",
-          text: "When your fee depends on paying attendance — for example The Weekend, New York Jazz Bar or Riviera Club — Jazzkeller Frankfurt provides the final payout amount after the event, so you know exactly what to invoice. For fixed per-person fees such as Jam Session, the fee is already known before the event.",
+          text: "When your fee depends on paying attendance — for example The Weekend, New York Jazz Bar or Riviera Club — Jazzkeller Frankfurt provides the final payout amount after the event, so you know exactly what to invoice. For fixed per-musician fees such as Jam Session, the fee is already known before the event.",
         },
         {
           type: "action",

@@ -153,9 +153,22 @@ Typical days:
 - Sunday dates follow The Weekend booking and payout logic unless individually agreed otherwise (see §8)
 
 ## Musical character
-The Weekend is the most artist-led concert format.
+The Weekend is Jazzkeller's **flagship concert format**. Describe it positively, without comparing it to other formats.
 
-Artists may present a broader concert program than on New York Jazz Bar nights, while still fitting the general Jazzkeller musical identity.
+Tagline: `Flagship weekend concerts`
+
+Summary:
+
+> Our flagship concert format for established artists, special guests and standout weekend programmes. The Weekend gives artists room for their own repertoire while staying connected to the Jazzkeller musical identity.
+
+The Weekend may include:
+- established artists
+- international guests
+- special projects
+- standout listening concerts
+- artist-led repertoire
+
+Do not imply that only famous artists may play The Weekend.
 
 ## Payout
 Current rule:
@@ -189,7 +202,7 @@ Worked examples:
 - €40 × 50 guests: gross €2,000 → net ≈ €1,869.16 → 60% ≈ €1,121.50 → **€1,125**
 - €40 × 60 guests: 60% ≈ €1,345.79 → **€1,350**
 
-Show only the final rounded payout. No payout preview for Jam Session (fixed fee). New York Jazz Bar (see §6) and Riviera (see §8a) have their own stepped fee previews in the same visual style.
+Show only the final rounded payout. New York Jazz Bar (see §6), Jam Session (see §7) and Riviera (see §8a) have their own fee previews in the same visual style.
 
 ## Sold-out / walk-in rule
 If the venue is fully sold out, Jazzkeller Frankfurt may retain additional spontaneous walk-in / door-ticket revenue to help cover club operating costs.
@@ -202,10 +215,18 @@ Do not frame this as a general deduction from the artist share.
 
 # 6. New York Jazz Bar
 
-New York Jazz Bar is a curated format.
+New York Jazz Bar is a curated, format-first club night with a New York / Greenwich Village-inspired jazz-bar atmosphere: cocktails, social energy, accessible repertoire and a strong club vibe.
+
+Summary:
+
+> A curated club night inspired by New York jazz bars and Village-style nightlife — cocktails, atmosphere and accessible repertoire at the centre of the evening.
+
+Artistic direction:
+
+> The music should feel alive, social and atmospheric — never sleepy or overly introspective.
 
 ## Musical direction
-The format should focus on accessible jazz repertoire such as:
+The repertoire may include:
 - Jazz Standards
 - Jazz Classics
 - Swing
@@ -213,10 +234,12 @@ The format should focus on accessible jazz repertoire such as:
 - Hardbop
 - Straight-Ahead Jazz
 - Soul Jazz
-- Organ Jazz where appropriate
+- Organ Jazz
+- Bossa Nova
+- Brazilian Jazz
 - Latin Jazz
-- Salsa-influenced / Latin-oriented evenings
-- accessible New York club-style repertoire
+- groove-oriented repertoire
+- selected Mediterranean / Spanish / Italian influences, where they fit naturally
 
 ## Not intended for
 New York Jazz Bar is not intended for:
@@ -284,17 +307,16 @@ Public note: **These are the standard NYJB 2027 artist-fee models. Individually 
 
 ## Counting paying guests
 Applies to all attendance-based fees (New York Jazz Bar and Riviera Club). Payouts use the actual number of **paying guests**, not ticket-order rows:
-- primary basis: **verified online ticket sales**
-- paying door / box-office guests are added to the final count
-- group tickets count by the people included: CLUB 2 = 2, CLUB 3 = 3, CLUB 4 = 4 paying guests; same principle for other multi-person ticket products
+- verified online ticket sales plus paying door / box-office guests
+- group tickets count by the people included: CLUB 2 = 2, CLUB 3 = 3, CLUB 4 = 4 paying guests; same principle for other multi-person ticket products (internal detail — the public note states only the principle)
 - complimentary guests do not count
 - staff do not count
 
 Public wording:
 
-> Paying attendance is based primarily on verified online ticket sales. Paying door guests are added to the final count. Complimentary guests and staff are not included.
+> Paying attendance is based on verified online ticket sales plus paying door guests. Complimentary guests and staff are not included. Multi-person tickets count by the number of people included.
 
-Transparency line: **On request, the relevant attendance figures can be verified from the digital ticketing records.**
+Do not offer attendance verification in the public guide. Keep the Weekend sold-out / walk-in rule (§5) separate from this definition.
 
 Display: shown once in the Payouts section as a "Paying attendance" note below the payout details, covering both New York Jazz Bar and Riviera Club.
 
@@ -327,30 +349,59 @@ Suggested wording:
 
 The Jam Session follows the general musical identity of Jazzkeller Frankfurt.
 
+## Opener role
+
+> The evening begins with an opener set of around 45 minutes. The opener band then remains on stage as the musical host and rhythm-section foundation for the open jam session.
+
 ## Musical direction
-Desired:
+Session-friendly and communicative. Artistic guidance:
+
+> Energetic, communicative and session-friendly repertoire works best.
+
+Good fit:
 - Swing
 - Bebop
 - Hardbop
-- New York-style jazz
-- Jazz standards
-- Latin jazz
-- related straight-ahead repertoire
+- Straight-Ahead Jazz
+- Jazz Standards
+- Soul Jazz
+- Bossa Nova
+- Brazilian Jazz
+- Latin Jazz
+- groove-oriented repertoire
 
 Not intended as:
-- avant-garde platform
-- experimental platform
-- abstract contemporary showcase
+- a free-jazz laboratory
+- an experimental showcase
+- a passive or meditative concert
 
-## Payout
-From 2027:
-- **€75 per person**
-- maximum **4 persons**
+## Payout — Jam Session Opener Fee
+Standard opener fee from 2027: **€80 per performing musician**.
 
-Do not invent a different fixed band total.
+| Line-up | Opener fee |
+| --- | --- |
+| Trio | €240 |
+| Quartet | €320 |
+| Quintet | €400 |
+
+- calculated from the number of **performing opener musicians**
+- flat rate: no attendance-based logic, no revenue share
+- individually confirmed existing terms remain valid
+
+Public wording:
+- title: **Jam Session Opener Fee** · `€80 per performing musician`
+- supporting sentence: **A simple flat-rate opener fee based on the number of performing musicians.**
+- note: **Standard examples: trio €240 · quartet €320 · quintet €400. Individually confirmed existing terms remain valid.**
+
+Display:
+- payout summary card: **JAM SESSION · €80 · per performing musician**, secondary line `Trio €240 · Quartet €320 · Quintet €400`
+- format panel key figure: **€80 · per performing musician**, supporting line `Standard opener examples: trio €240 · quartet €320 · quintet €400`
+- interactive preview in the Payouts section (same rose bar style): line-up pills **Trio / Quartet / Quintet**, default Trio; bar scale max €400 (trio 60%, quartet 80%, quintet 100%)
 
 ## Hospitality
+- **unlimited water** for performing musicians (does not use drink tickets)
 - **3 drink tickets per performing musician**
+- full rule in §12 "Jam Session"; the format panel only mentions the 3 drink tickets
 
 ## Guestlist
 - **No guestlist**
@@ -385,12 +436,20 @@ Riviera is the fourth primary format.
 
 Current confirmed positioning:
 - seasonal summer format
-- lighter and more relaxed atmosphere
+- lighter Mediterranean feel — relaxed, stylish and groove-led
 - still clearly rooted in the Jazzkeller musical identity
 
 Suggested wording:
 
-> A seasonal summer format with a relaxed, stylish atmosphere while remaining rooted in the Jazzkeller musical identity.
+> A seasonal summer format with a lighter Mediterranean feel — relaxed, stylish and groove-led, while remaining rooted in the Jazzkeller musical identity.
+
+Musical influences may include (not a rigid repertoire restriction):
+- Latin Jazz
+- Brazilian Jazz
+- Bossa Nova
+- groove-oriented jazz
+- Mediterranean influences
+- selected Spanish / Italian influences
 
 ## Payout — Summer Fee 2027
 Confirmed stepped fee model, based on actual paying attendance:
@@ -465,13 +524,16 @@ Do not promise specific marketing services unless separately confirmed.
 
 ## Access
 Typical artist access:
-- around **19:00**
+- around **19:00**, or as individually agreed
+- Sunday dates normally require earlier access, usually around **18:00**, unless individually agreed otherwise
 
-Current venue timing context:
-- Wednesday / Thursday doors: around 20:00
-- Friday / Saturday doors: around 20:30
-
-Do not overcomplicate the public guide with all event start times unless useful.
+## Concert-day timeline (public)
+1. **Artist access** · `~19:00` — Artist access normally begins around 19:00, or as individually agreed.
+   Note: Sunday dates normally require earlier access, usually around 18:00, unless individually agreed otherwise.
+2. **Setup & soundcheck** · `Setup` — Use the available pre-show window for setup, soundcheck and short musical adjustments.
+3. **Doors** · `Doors` — Around 20:00 on Wednesdays and Thursdays, around 20:30 on Fridays and Saturdays.
+4. **Show start** · `Show` — 21:00 on Wednesdays and Thursdays. 21:30 on Fridays and Saturdays.
+5. **Performance structure** · `Sets` — Normally 2 sets of approximately 45 minutes, with a 15–20 minute break.
 
 ## Rehearsal rule
 Artists should not expect to access the venue at 15:00 or 16:00 for several hours of rehearsal.
@@ -544,8 +606,18 @@ Suggested wording:
 > We’re happy to look after our musicians during the evening. Soft drinks, water, beer and wine are available for performing artists. Cocktails are generally excluded from artist hospitality during service, as they require considerably more preparation time and our bar team prioritizes our guests during busy periods.
 
 ## Jam Session
-Jam Session uses the separate rule:
-- 3 drink tickets per person
+Jam Session uses a separate rule:
+- **water is unlimited** for performing musicians; water does not use drink tickets
+- each performing musician receives **3 drink tickets**
+- drink tickets apply to beer, wine, soft drinks and simple mixed drinks / simple long drinks, where available
+- **cocktails are not included**
+- do not imply unlimited alcoholic drinks or any cocktail entitlement
+
+Suggested wording:
+
+> Water is unlimited for performing musicians. In addition, each performing musician receives 3 drink tickets for beer, wine, soft drinks and simple mixed drinks. Cocktails are not included.
+
+Stage rules (§13) still apply: water is welcome on stage, alcoholic drinks stay off stage, no drinks on the piano.
 
 ---
 
@@ -634,7 +706,7 @@ For bookings where the payout depends on paying attendance (e.g. The Weekend rev
 
 > After the event, Jazzkeller Frankfurt provides the final payout amount so the artist knows exactly what to invoice.
 
-For fixed per-person fees such as Jam Session, the fee is already known before the event. Do not overcomplicate this distinction.
+For fixed per-musician fees such as Jam Session, the fee is already known before the event. Do not overcomplicate this distinction.
 
 This step appears before the invoice step.
 

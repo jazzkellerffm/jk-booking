@@ -205,26 +205,34 @@ function Block({ block }: { block: ContentBlock }) {
 
     case "steps":
       return (
-        <ol>
+        /* The marker column takes the widest marker, so every pill matches and all text shares one axis. */
+        <ol className="grid grid-cols-[max-content_minmax(0,1fr)] gap-x-4">
           {block.items.map((step, index) => {
             const last = index === block.items.length - 1;
 
             return (
-              <li className="relative flex gap-4 pb-6 last:pb-0" key={step.title}>
-                {!last ? (
-                  <span
-                    aria-hidden="true"
-                    className="absolute top-9 bottom-0 left-6 w-px bg-jk-brand-green/15"
-                  />
-                ) : null}
-                <span className="ui-label relative inline-flex h-9 min-w-12 shrink-0 items-center justify-center rounded-full bg-jk-brand-green px-3 text-xs text-jk-cream">
-                  {step.marker ?? String(index + 1).padStart(2, "0")}
-                </span>
-                <div className="min-w-0 pt-1">
+              <li className="col-span-2 grid grid-cols-subgrid" key={step.title}>
+                <div className="relative flex justify-center">
+                  {!last ? (
+                    <span
+                      aria-hidden="true"
+                      className="absolute top-9 bottom-0 left-1/2 w-px bg-jk-brand-green/15"
+                    />
+                  ) : null}
+                  <span className="ui-label relative inline-flex h-9 w-full min-w-12 items-center justify-center rounded-full bg-jk-brand-green px-3 text-xs text-jk-cream">
+                    {step.marker ?? String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <div className={cn("min-w-0 pt-1", !last && "pb-6")}>
                   <p className="ui-label text-body text-jk-primary">{step.title}</p>
                   <p className="mt-1 text-body text-jk-secondary">
                     <RichText text={step.text} />
                   </p>
+                  {step.note ? (
+                    <p className="mt-1 text-sm leading-5 text-jk-secondary/80">
+                      <RichText text={step.note} />
+                    </p>
+                  ) : null}
                 </div>
               </li>
             );

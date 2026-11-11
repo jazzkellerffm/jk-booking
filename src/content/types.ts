@@ -68,6 +68,8 @@ export type Step = {
   marker?: string;
   title: string;
   text: RichText;
+  /** Secondary line under the text, e.g. an exception */
+  note?: RichText;
 };
 
 export type AccordionItem = {
@@ -124,6 +126,14 @@ export type PayoutCalculation =
         text?: RichText;
         tiers: AttendanceTier[];
       }[];
+    }
+  | {
+      /** Flat fee per performing musician, one pill per line-up; the first is the default */
+      kind: "perMusician";
+      /** Accessible name for the line-up pills, e.g. "Line-up" */
+      scenarioLabel: string;
+      feePerMusician: number;
+      lineUps: { label: string; musicians: number }[];
     };
 
 /** Paying-guest bracket, e.g. "21–30", and its fee in whole euros */
@@ -136,6 +146,8 @@ export type PayoutScenarioGroup = {
   caption?: string;
   title?: string;
   text?: RichText;
+  /** Unit after each row's count; defaults to "guests" */
+  unit?: string;
   scenarios: PayoutScenario[];
 };
 
