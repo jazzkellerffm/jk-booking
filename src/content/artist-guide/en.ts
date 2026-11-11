@@ -60,9 +60,10 @@ export const artistGuideEn: ArtistGuideContent = {
       tagline: "Curated, repertoire-based nights",
       summary:
         "A curated, format-first evening built around accessible jazz repertoire in a New York club style — not a free artist showcase.",
-      keyFigure: { value: "€400", label: "fixed artist fee" },
+      keyFigure: { value: "€400", label: "Regular guaranteed fee" },
       points: [
-        "Payout: **€400 fixed artist fee**.",
+        "Regular season (16 September – 30 April): **€400 guaranteed artist fee**, increasing to €500 when 60 or more paying guests attend.",
+        "Summer fee: €300–€500 based on paying attendance.",
         "No more than **two original compositions per evening**, fitting naturally into the overall repertoire and atmosphere.",
       ],
       goodFit: [
@@ -272,7 +273,8 @@ export const artistGuideEn: ArtistGuideContent = {
             {
               value: "€400",
               label: "New York Jazz Bar",
-              caption: "fixed artist fee",
+              caption: "Regular guaranteed fee",
+              detail: "Summer €300–€500 · Full House €500",
             },
             {
               value: "€75",
@@ -301,6 +303,43 @@ export const artistGuideEn: ArtistGuideContent = {
             vatRate: 0.07,
             artistShare: 0.6,
             roundUpTo: 5,
+          },
+        },
+        {
+          type: "payoutPreview",
+          eyebrow: "New York Jazz Bar",
+          title: "NYJB 2027 artist fees",
+          note: "These are the standard NYJB 2027 artist-fee models. Individually confirmed booking terms always take precedence.",
+          calculation: {
+            kind: "seasonalTiers",
+            seasonLabel: "Season",
+            scenarioLabel: "Paying guests",
+            seasons: [
+              {
+                id: "regular",
+                label: "Regular",
+                period: "16 September – 30 April",
+                title: "NYJB Regular Season · Guaranteed Artist Fee",
+                text: "A guaranteed **€400** artist fee, increasing to €500 when 60 or more paying guests attend.",
+                tiers: [
+                  { guests: "0–59", payout: 400 },
+                  { guests: "60+", payout: 500 },
+                ],
+              },
+              {
+                id: "summer",
+                label: "Summer",
+                period: "1 May – 15 September",
+                title: "NYJB Summer Fee 2027",
+                text: "A flexible summer artist fee based on paying attendance, ranging from €300 to €500.",
+                tiers: [
+                  { guests: "0–20", payout: 300 },
+                  { guests: "21–29", payout: 350 },
+                  { guests: "30–59", payout: 400 },
+                  { guests: "60+", payout: 500 },
+                ],
+              },
+            ],
           },
         },
         {
@@ -354,12 +393,33 @@ export const artistGuideEn: ArtistGuideContent = {
               id: "payout-nyjb",
               title: "New York Jazz Bar",
               icon: "music",
-              summary: "€400 fixed artist fee",
+              summary: "€400 regular guaranteed · Summer €300–€500",
               blocks: [
                 {
                   type: "list",
+                  title: "Regular season · 16 September – 30 April",
                   style: "check",
-                  items: ["**€400** fixed artist fee."],
+                  items: [
+                    "**€400 guaranteed artist fee**, independent of attendance below a full house.",
+                    "**€500** with 60 or more paying guests.",
+                  ],
+                },
+                {
+                  type: "list",
+                  title: "Summer season · 1 May – 15 September",
+                  style: "check",
+                  items: [
+                    "0–20 paying guests: **€300** · 21–29: **€350** · 30–59: **€400** · 60+: **€500**.",
+                  ],
+                },
+                {
+                  type: "paragraph",
+                  text: "The artist fee is a **total band fee** and applies equally to trio or quartet bookings unless individually agreed otherwise. The fee is shared between the performing musicians.",
+                },
+                {
+                  type: "notice",
+                  tone: "info",
+                  text: "These are the standard NYJB 2027 artist-fee models. Individually confirmed booking terms always take precedence, and already confirmed bookings remain unchanged.",
                 },
               ],
             },
@@ -392,9 +452,19 @@ export const artistGuideEn: ArtistGuideContent = {
                     "Individually agreed alternative booking models remain valid.",
                   ],
                 },
+                {
+                  type: "paragraph",
+                  text: "The artist fee is a **total band fee** and applies equally to trio or quartet bookings unless individually agreed otherwise. The fee is shared between the performing musicians.",
+                },
               ],
             },
           ],
+        },
+        {
+          type: "notice",
+          tone: "neutral",
+          title: "Paying attendance",
+          text: "Paying attendance is based primarily on verified online ticket sales. Paying door guests are added to the final count. Complimentary guests and staff are not included. Multi-person tickets count by the people included — CLUB 2 = 2 guests, CLUB 3 = 3, CLUB 4 = 4. On request, the relevant attendance figures can be verified from the digital ticketing records.",
         },
       ],
     },
@@ -611,7 +681,7 @@ export const artistGuideEn: ArtistGuideContent = {
           tone: "info",
           icon: "payout",
           title: "Final payout",
-          text: "For revenue-share bookings such as The Weekend, Jazzkeller Frankfurt provides the final payout amount after the event, so you know exactly what to invoice. For fixed-fee formats such as New York Jazz Bar or Jam Session, the agreed fee is already known before the event.",
+          text: "When your fee depends on paying attendance — for example The Weekend, New York Jazz Bar or Riviera Club — Jazzkeller Frankfurt provides the final payout amount after the event, so you know exactly what to invoice. For fixed per-person fees such as Jam Session, the fee is already known before the event.",
         },
         {
           type: "action",
@@ -743,7 +813,7 @@ export const artistGuideEn: ArtistGuideContent = {
             {
               marker: "03",
               title: "Final payout",
-              text: "For revenue-share bookings, we provide the final payout amount after the event so you know exactly what to invoice.",
+              text: "When your fee depends on paying attendance, we provide the final payout amount after the event so you know exactly what to invoice.",
             },
             {
               marker: "04",

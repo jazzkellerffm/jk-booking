@@ -2,7 +2,7 @@
 
 import { Info } from "lucide-react";
 import { useId, useRef, useState, type KeyboardEvent } from "react";
-import type { PayoutScenario, RichText as RichTextValue } from "@/content/types";
+import type { PayoutScenarioGroup, RichText as RichTextValue } from "@/content/types";
 import { RichText } from "@/components/ui/rich-text";
 import { cn } from "@/lib/cn";
 
@@ -13,106 +13,92 @@ const euro = new Intl.NumberFormat("en-GB", {
 });
 
 /**
- * Graduated bar preview of payouts. Several scenarios get switchable pills;
- * a single scenario (e.g. a stepped fee) renders its rows directly.
+ * Graduated bar preview of payouts. Several groups (e.g. seasons) get a pill
+ * row; several scenarios within a group get a second one. A group's first
+ * scenario is its default. Single-row scenarios (stepped fees) show one
+ * prominent fee and bar; multi-row scenarios show a bar per row.
  */
 export function PayoutPreview({
   eyebrow,
   title,
   text,
   note,
+  groupLabel,
   scenarioLabel,
-  scenarios,
+  groups,
 }: {
   eyebrow?: string;
   title: string;
   text?: RichTextValue;
   note?: RichTextValue;
+  groupLabel?: string;
   scenarioLabel?: string;
-  scenarios: PayoutScenario[];
+  groups: PayoutScenarioGroup[];
 }) {
-  const [selectedId, setSelectedId] = useState(scenarios[0]?.id);
-  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const [groupId, setGroupId] = useState<string | undefined>(groups[0]?.id);
+  const [scenarioId, setScenarioId] = useState<string | undefined>(groups[0]?.scenarios[0]?.id);
   const baseId = useId();
-  const selected = scenarios.find((scenario) => scenario.id === selectedId) ?? scenarios[0];
+  const group = groups.find((item) => item.id === groupId) ?? groups[0];
+  const scenarios = group?.scenarios ?? [];
+  const selected = scenarios.find((scenario) => scenario.id === scenarioId) ?? scenarios[0];
 
-  if (!selected) {
+  if (!group || !selected) {
     return null;
   }
 
-  // One scale across all scenarios so switching price visibly changes the bars.
-  const max = Math.max(...scenarios.flatMap((scenario) => scenario.rows.map((row) => row.payout)));
+  // One scale across all groups and scenarios so switching visibly changes the bars.
+  const max = Math.max(
+    ...groups.flatMap((item) =>
+      item.scenarios.flatMap((scenario) => scenario.rows.map((row) => row.payout)),
+    ),
+  );
   const panelId = `${baseId}-panel`;
+  const groupSwitchable = groups.length > 1;
   const switchable = scenarios.length > 1;
 
-  function onKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
-    const delta =
-      event.key === "ArrowRight" || event.key === "ArrowDown"
-        ? 1
-        : event.key === "ArrowLeft" || event.key === "ArrowUp"
-          ? -1
-          : 0;
-
-    if (delta === 0) return;
-    event.preventDefault();
-    const nextIndex = (index + delta + scenarios.length) % scenarios.length;
-    setSelectedId(scenarios[nextIndex].id);
-    tabRefs.current[nextIndex]?.focus();
+  function selectGroup(id: string) {
+    const next = groups.find((item) => item.id === id);
+    setGroupId(id);
+    setScenarioId(next?.scenarios[0]?.id);
   }
 
   return (
     <div className="overflow-hidden rounded-card bg-jk-card p-5 shadow-jk-card ring-1 ring-jk-primary/[0.05] sm:p-7">
       {eyebrow ? <p className="eyebrow text-jk-brand-green">{eyebrow}</p> : null}
-      <h3 className="display-heading mt-2 text-2xl text-jk-primary sm:text-[1.75rem]">{title}</h3>
-      {text ? (
+      <h3 className="display-heading mt-2 text-2xl text-jk-primary sm:text-[1.75rem]">
+        {group.title ?? title}
+      </h3>
+      {(group.text ?? text) ? (
         <p className="mt-2 text-body text-jk-secondary">
-          <RichText text={text} />
+          <RichText text={group.text ?? text ?? ""} />
         </p>
       ) : null}
 
-      {switchable ? (
-        <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
-          <p className="eyebrow text-jk-secondary" id={`${baseId}-label`}>
-            {scenarioLabel}
-          </p>
-          {/* Scrolls edge-to-edge on narrow cards instead of wrapping or shrinking pills. */}
-          <div className="jk-no-scrollbar -mx-5 basis-[calc(100%+2.5rem)] overflow-x-auto px-5 sm:mx-0 sm:basis-auto sm:overflow-visible sm:px-0">
-            <div
-              aria-labelledby={`${baseId}-label`}
-              className="flex w-max gap-1 rounded-full bg-jk-primary/[0.04] p-1"
-              role="tablist"
-            >
-              {scenarios.map((scenario, index) => {
-                const active = scenario.id === selected.id;
+      {groupSwitchable ? (
+        <>
+          <PillTabs
+            controls={panelId}
+            idPrefix={`${baseId}-group`}
+            items={groups}
+            label={groupLabel}
+            onSelect={selectGroup}
+            selectedId={group.id}
+          />
+          {group.caption ? (
+            <p className="mt-2 text-sm text-jk-secondary">{group.caption}</p>
+          ) : null}
+        </>
+      ) : null}
 
-                return (
-                  <button
-                    aria-controls={panelId}
-                    aria-selected={active}
-                    className={cn(
-                      "ui-label inline-flex h-10 min-w-14 items-center justify-center rounded-full px-4 text-sm tabular-nums outline-none transition-colors duration-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-jk-brand-green",
-                      active
-                        ? "bg-jk-brand-green text-white shadow-jk-raised"
-                        : "text-jk-secondary hover:text-jk-primary",
-                    )}
-                    id={`${baseId}-tab-${scenario.id}`}
-                    key={scenario.id}
-                    onClick={() => setSelectedId(scenario.id)}
-                    onKeyDown={(event) => onKeyDown(event, index)}
-                    ref={(node) => {
-                      tabRefs.current[index] = node;
-                    }}
-                    role="tab"
-                    tabIndex={active ? 0 : -1}
-                    type="button"
-                  >
-                    {scenario.label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+      {switchable ? (
+        <PillTabs
+          controls={panelId}
+          idPrefix={`${baseId}-tab`}
+          items={scenarios}
+          label={scenarioLabel}
+          onSelect={setScenarioId}
+          selectedId={selected.id}
+        />
       ) : null}
 
       <div
@@ -163,6 +149,86 @@ export function PayoutPreview({
           </span>
         </p>
       ) : null}
+    </div>
+  );
+}
+
+/** Labelled pill tablist with arrow-key navigation. */
+function PillTabs({
+  label,
+  items,
+  selectedId,
+  onSelect,
+  idPrefix,
+  controls,
+}: {
+  label?: string;
+  items: { id: string; label: string }[];
+  selectedId: string;
+  onSelect: (id: string) => void;
+  idPrefix: string;
+  controls: string;
+}) {
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const labelId = `${idPrefix}-label`;
+
+  function onKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
+    const delta =
+      event.key === "ArrowRight" || event.key === "ArrowDown"
+        ? 1
+        : event.key === "ArrowLeft" || event.key === "ArrowUp"
+          ? -1
+          : 0;
+
+    if (delta === 0) return;
+    event.preventDefault();
+    const nextIndex = (index + delta + items.length) % items.length;
+    onSelect(items[nextIndex].id);
+    tabRefs.current[nextIndex]?.focus();
+  }
+
+  return (
+    <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
+      <p className="eyebrow text-jk-secondary" id={labelId}>
+        {label}
+      </p>
+      {/* Scrolls edge-to-edge on narrow cards instead of wrapping or shrinking pills. */}
+      <div className="jk-no-scrollbar -mx-5 basis-[calc(100%+2.5rem)] overflow-x-auto px-5 sm:mx-0 sm:basis-auto sm:overflow-visible sm:px-0">
+        <div
+          aria-labelledby={labelId}
+          className="flex w-max gap-1 rounded-full bg-jk-primary/[0.04] p-1"
+          role="tablist"
+        >
+          {items.map((item, index) => {
+            const active = item.id === selectedId;
+
+            return (
+              <button
+                aria-controls={controls}
+                aria-selected={active}
+                className={cn(
+                  "ui-label inline-flex h-10 min-w-14 items-center justify-center rounded-full px-4 text-sm tabular-nums outline-none transition-colors duration-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-jk-brand-green",
+                  active
+                    ? "bg-jk-brand-green text-white shadow-jk-raised"
+                    : "text-jk-secondary hover:text-jk-primary",
+                )}
+                id={`${idPrefix}-${item.id}`}
+                key={item.id}
+                onClick={() => onSelect(item.id)}
+                onKeyDown={(event) => onKeyDown(event, index)}
+                ref={(node) => {
+                  tabRefs.current[index] = node;
+                }}
+                role="tab"
+                tabIndex={active ? 0 : -1}
+                type="button"
+              >
+                {item.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

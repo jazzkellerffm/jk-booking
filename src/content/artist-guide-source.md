@@ -189,7 +189,7 @@ Worked examples:
 - €40 × 50 guests: gross €2,000 → net ≈ €1,869.16 → 60% ≈ €1,121.50 → **€1,125**
 - €40 × 60 guests: 60% ≈ €1,345.79 → **€1,350**
 
-Show only the final rounded payout. No payout previews for New York Jazz Bar or Jam Session (fixed fees). Riviera has its own stepped fee preview in the same visual style (see §8a).
+Show only the final rounded payout. No payout preview for Jam Session (fixed fee). New York Jazz Bar (see §6) and Riviera (see §8a) have their own stepped fee previews in the same visual style.
 
 ## Sold-out / walk-in rule
 If the venue is fully sold out, Jazzkeller Frankfurt may retain additional spontaneous walk-in / door-ticket revenue to help cover club operating costs.
@@ -227,13 +227,78 @@ New York Jazz Bar is not intended for:
 - avant-garde programs
 - highly conceptual original-music projects
 
-## Payout
-Current rule:
-- **€400 fixed artist fee**
+## Payout — NYJB 2027 artist-fee models
+Two seasonal standard models, based on **paying attendance**. Do not introduce any additional thresholds or payout conditions.
 
-Preferred concise wording: `€400 · fixed artist fee`
+### Regular Season — 16 September – 30 April
+Public title: **NYJB Regular Season · Guaranteed Artist Fee**
+Description: **A guaranteed €400 artist fee, increasing to €500 when 60 or more paying guests attend.**
 
-There is no guest-count tier. Do not invent additional payout conditions.
+| Paying guests | Artist fee |
+| --- | --- |
+| 0–59 | €400 |
+| 60+ | €500 |
+
+- €400 is guaranteed, independent of attendance below a full house
+- the full-house increase at 60+ paying guests is €100
+
+### Summer Season — 1 May – 15 September
+Public title: **NYJB Summer Fee 2027**
+Description: **A flexible summer artist fee based on paying attendance, ranging from €300 to €500.**
+
+| Paying guests | Artist fee |
+| --- | --- |
+| 0–20 | €300 |
+| 21–29 | €350 |
+| 30–59 | €400 |
+| 60+ | €500 |
+
+- do not imply that this model automatically applies to every NYJB booking
+
+### Band size — total band fee
+Applies to both the Regular and the Summer model:
+- the artist fee is a **total band fee**, not a per-person fee
+- it applies equally to **trio** and **quartet** bookings unless individually agreed otherwise
+- the fee is shared between the performing musicians
+- do not mention quintets; do not imply that quartets automatically require a special agreement
+
+Public wording:
+
+> The artist fee is a total band fee and applies equally to trio or quartet bookings unless individually agreed otherwise. The fee is shared between the performing musicians.
+
+### Booking agreement precedence
+- the general payout model never overrides an individually confirmed booking agreement
+- individually agreed artist fees take precedence
+- already confirmed bookings remain unchanged (no retroactive change)
+- the seasonal NYJB model applies only to new bookings where this model is explicitly agreed
+
+Public note: **These are the standard NYJB 2027 artist-fee models. Individually confirmed booking terms always take precedence.**
+
+### Display
+- payout summary card: **NEW YORK JAZZ BAR · €400 · Regular guaranteed fee**, secondary line `Summer €300–€500 · Full House €500`
+- format panel key figure: **€400 · Regular guaranteed fee**, supporting line `Summer fee: €300–€500 based on paying attendance.`
+- interactive preview in the Payouts section (same rose bar style as Riviera): season pills **Regular / Summer**, then attendance-bracket pills
+  - Regular default: 0–59 guests / €400
+  - Summer default: 0–20 guests / €300
+- do not describe €400 as a year-round fixed fee
+
+## Counting paying guests
+Applies to all attendance-based fees (New York Jazz Bar and Riviera Club). Payouts use the actual number of **paying guests**, not ticket-order rows:
+- primary basis: **verified online ticket sales**
+- paying door / box-office guests are added to the final count
+- group tickets count by the people included: CLUB 2 = 2, CLUB 3 = 3, CLUB 4 = 4 paying guests; same principle for other multi-person ticket products
+- complimentary guests do not count
+- staff do not count
+
+Public wording:
+
+> Paying attendance is based primarily on verified online ticket sales. Paying door guests are added to the final count. Complimentary guests and staff are not included.
+
+Transparency line: **On request, the relevant attendance figures can be verified from the digital ticketing records.**
+
+Display: shown once in the Payouts section as a "Paying attendance" note below the payout details, covering both New York Jazz Bar and Riviera Club.
+
+This is the payout definition only. No ticketing integration is built yet.
 
 ## Original compositions
 Current rule:
@@ -342,7 +407,8 @@ Core rules:
 - **€400 guaranteed minimum artist fee**
 - the fee increases in **€50 steps**
 - **€600 maximum regular fixed fee**
-- based on **actual paying attendance**
+- based on **actual paying attendance**, counted as defined in §6 "Counting paying guests"
+- the artist fee is a **total band fee** and applies equally to trio or quartet bookings unless individually agreed otherwise; the fee is shared between the performing musicians (same principle as §6 "Band size")
 - initially applies to **selected Saturday dates in July and August 2027**
 - individually agreed alternative booking models remain valid
 
@@ -564,11 +630,11 @@ GEMA is not a top-level navigation item. Keep the information on the page as a s
 Concert → final payout communicated → invoice submitted → payment
 
 ## Final payout
-For bookings where the payout depends on attendance (revenue-share bookings such as The Weekend):
+For bookings where the payout depends on paying attendance (e.g. The Weekend revenue share, or attendance-based fees such as New York Jazz Bar and Riviera Club):
 
 > After the event, Jazzkeller Frankfurt provides the final payout amount so the artist knows exactly what to invoice.
 
-For fixed-fee formats such as New York Jazz Bar or Jam Session, the agreed fee is already known before the event. Do not overcomplicate this distinction.
+For fixed per-person fees such as Jam Session, the fee is already known before the event. Do not overcomplicate this distinction.
 
 This step appears before the invoice step.
 
@@ -784,7 +850,7 @@ About · Profile · Formats · Payouts · Promotion · Concert day · Hospitalit
 ## What Happens Next
 - **01 Promotion** — Actively promote your appearance through your own channels.
 - **02 Concert day** — Arrive around 19:00, performance-ready, for setup and soundcheck.
-- **03 Final payout** — For revenue-share bookings, we provide the final payout amount after the event so you know exactly what to invoice.
+- **03 Final payout** — When your fee depends on paying attendance, we provide the final payout amount after the event so you know exactly what to invoice.
 - **04 Submit invoice** — Submit your invoice via invoice.jazzkeller.com.
 - **05 Payment** — Payment is usually made by bank transfer within 30 days after receipt of a proper invoice.
 

@@ -5,7 +5,7 @@ import { BulletList } from "@/components/ui/bullet-list";
 import { Card } from "@/components/ui/card";
 import { IconBadge } from "@/components/ui/icon-badge";
 import { PayoutPreview } from "@/components/content/payout-preview";
-import { payoutScenarios } from "@/lib/payout";
+import { payoutScenarioGroups } from "@/lib/payout";
 import { Notice } from "@/components/ui/notice";
 import { Pill } from "@/components/ui/pill";
 import { RichText } from "@/components/ui/rich-text";
@@ -123,6 +123,16 @@ function Block({ block }: { block: ContentBlock }) {
                       {stat.caption}
                     </p>
                   ) : null}
+                  {stat.detail ? (
+                    <p
+                      className={cn(
+                        "mt-1 text-xs",
+                        dark ? "text-jk-cream/60" : "text-jk-secondary/80",
+                      )}
+                    >
+                      {stat.detail}
+                    </p>
+                  ) : null}
                 </Card>
               );
             })}
@@ -227,8 +237,11 @@ function Block({ block }: { block: ContentBlock }) {
         <PayoutPreview
           eyebrow={block.eyebrow}
           note={block.note}
+          groupLabel={
+            block.calculation.kind === "seasonalTiers" ? block.calculation.seasonLabel : undefined
+          }
+          groups={payoutScenarioGroups(block.calculation)}
           scenarioLabel={block.calculation.scenarioLabel}
-          scenarios={payoutScenarios(block.calculation)}
           text={block.text}
           title={block.title}
         />

@@ -105,8 +105,39 @@ export type PayoutCalculation =
       kind: "tiers";
       /** Accessible name for the bracket pills, e.g. "Paying guests" */
       scenarioLabel: string;
-      tiers: { guests: string; payout: number }[];
+      tiers: AttendanceTier[];
+    }
+  | {
+      /** Attendance tiers that differ by season; season pills sit above the bracket pills */
+      kind: "seasonalTiers";
+      /** Accessible name for the season pills, e.g. "Season" */
+      seasonLabel: string;
+      scenarioLabel: string;
+      seasons: {
+        id: string;
+        /** Pill label, e.g. "Regular" */
+        label: string;
+        /** Shown under the pills, e.g. "16 September – 30 April" */
+        period: string;
+        /** Replace the card title / text while this season is selected */
+        title?: string;
+        text?: RichText;
+        tiers: AttendanceTier[];
+      }[];
     };
+
+/** Paying-guest bracket, e.g. "21–30", and its fee in whole euros */
+export type AttendanceTier = { guests: string; payout: number };
+
+/** A set of scenarios selectable as one group, e.g. a season. */
+export type PayoutScenarioGroup = {
+  id: string;
+  label: string;
+  caption?: string;
+  title?: string;
+  text?: RichText;
+  scenarios: PayoutScenario[];
+};
 
 export type ContentBlock =
   | { type: "paragraph"; text: RichText; size?: "lead" | "body" }
@@ -121,7 +152,13 @@ export type ContentBlock =
   | { type: "facts"; title?: string; items: Fact[] }
   | {
       type: "stats";
-      items: { value: string; label: string; caption?: RichText }[];
+      items: {
+        value: string;
+        label: string;
+        caption?: RichText;
+        /** Smaller secondary line under the caption */
+        detail?: string;
+      }[];
       /** Small print under the cards, e.g. explaining an asterisk */
       footnote?: RichText;
     }
